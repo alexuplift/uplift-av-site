@@ -340,6 +340,27 @@ a,button{-webkit-tap-highlight-color:rgba(184,145,95,.18)}
 
 @media (max-width:960px){.bento[style]{grid-template-columns:minmax(0,1fr)!important}}
 .bento[style] .tile{grid-column:auto}
+/* quote form */
+.qform{background:#fff;border:1px solid var(--line);border-radius:8px;padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:18px}
+.muted-sm{color:var(--muted);font-size:15px}
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}
+@media (max-width:640px){.fgrid{grid-template-columns:minmax(0,1fr)}}
+.fld{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:var(--ink-2);min-width:0}
+.fld input,.fld select,.fld textarea{font:inherit;font-size:16px;font-weight:400;color:var(--ink);background:#fff;border:1px solid #CFC8BC;border-radius:4px;padding:11px 12px;min-height:46px;width:100%;box-sizing:border-box;-webkit-appearance:none;appearance:none}
+.fld select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2362646B' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 12px center;padding-right:34px}
+.fld textarea{min-height:120px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+.fset{border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin:0}
+.fset legend{font-size:14px;font-weight:600;color:var(--ink-2);padding:0 6px}
+.chk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 12px}
+@media (max-width:900px){.chk{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.chk{grid-template-columns:minmax(0,1fr)}}
+.chk label{display:flex;align-items:center;gap:8px;font-size:15px;min-height:40px;cursor:pointer}
+.chk input{width:20px;height:20px;accent-color:var(--gold-ink)}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.factions{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.fstatus{margin:0;font-size:15px;font-weight:600}
+.fstatus.ok{color:#1F7A4D}.fstatus.err{color:#B42318}
 html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-promo]{display:none!important}</style>
 </head>
 <body>
@@ -408,6 +429,19 @@ html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-
     var t=btn.getAttribute('data-copy'), done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy email';},1800);};
     if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,function(){sel(btn)});}else sel(btn);});});
   function sel(btn){var el=document.querySelector('.email');if(!el)return;var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Press Ctrl/Cmd+C';}
+  var f=document.getElementById('quote-form');
+  if(f){f.addEventListener('submit',function(e){
+    e.preventDefault(); var st=document.getElementById('f-status'), btn=document.getElementById('f-submit');
+    if(!f.checkValidity()){var bad=f.querySelector(':invalid'); st.textContent='Please fill in the required fields.'; st.className='fstatus err'; if(bad) bad.focus(); return;}
+    if(f.access_key.value.indexOf('PASTE')===0){st.textContent='The form is not connected yet. Please email info@upliftavtech.com.'; st.className='fstatus err'; return;}
+    var data=new FormData(f), obj={}; data.forEach(function(v,k){ if(k==='addons'){obj[k]=obj[k]?obj[k]+', '+v:v;} else obj[k]=v; }); delete obj.redirect;
+    btn.disabled=true; btn.textContent='Sending...'; st.textContent=''; st.className='fstatus';
+    fetch(f.action,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(obj)})
+      .then(function(r){return r.json();}).then(function(j){
+        if(j.success){f.reset(); st.textContent='Thanks. Your request was sent. We will reply by email soon.'; st.className='fstatus ok'; btn.textContent='Sent';}
+        else throw new Error(j.message||'error');})
+      .catch(function(){st.textContent='Something went wrong. Please try again or email info@upliftavtech.com.'; st.className='fstatus err'; btn.disabled=false; btn.textContent='Send request';});
+  });}
 })();
 </script>
 </body>

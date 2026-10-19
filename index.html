@@ -337,6 +337,27 @@ a,button{-webkit-tap-highlight-color:rgba(184,145,95,.18)}
 
 @media (max-width:960px){.bento[style]{grid-template-columns:minmax(0,1fr)!important}}
 .bento[style] .tile{grid-column:auto}
+/* quote form */
+.qform{background:#fff;border:1px solid var(--line);border-radius:8px;padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:18px}
+.muted-sm{color:var(--muted);font-size:15px}
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}
+@media (max-width:640px){.fgrid{grid-template-columns:minmax(0,1fr)}}
+.fld{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:var(--ink-2);min-width:0}
+.fld input,.fld select,.fld textarea{font:inherit;font-size:16px;font-weight:400;color:var(--ink);background:#fff;border:1px solid #CFC8BC;border-radius:4px;padding:11px 12px;min-height:46px;width:100%;box-sizing:border-box;-webkit-appearance:none;appearance:none}
+.fld select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2362646B' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 12px center;padding-right:34px}
+.fld textarea{min-height:120px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+.fset{border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin:0}
+.fset legend{font-size:14px;font-weight:600;color:var(--ink-2);padding:0 6px}
+.chk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 12px}
+@media (max-width:900px){.chk{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.chk{grid-template-columns:minmax(0,1fr)}}
+.chk label{display:flex;align-items:center;gap:8px;font-size:15px;min-height:40px;cursor:pointer}
+.chk input{width:20px;height:20px;accent-color:var(--gold-ink)}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.factions{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.fstatus{margin:0;font-size:15px;font-weight:600}
+.fstatus.ok{color:#1F7A4D}.fstatus.err{color:#B42318}
 html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-promo]{display:none!important}</style>
 </head>
 <body>
@@ -367,9 +388,9 @@ html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-
 </div></section>
 
 <section aria-labelledby="pain"><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Straight answers</span><h2 id="pain">The questions you're too polite to ask</h2>
-  <p class="lede">Short answers to the questions every event planner asks us.</p></div>
-  <div class="qa-grid"><article class="qa"><h3>What if the stream drops?</h3><p>It won't be the WiFi, because we don't use it. Dedicated wired line, full test before doors open, and the show records on site the entire time. No wire at the venue? We bring Starlink.</p><a href="faq.html#reliability" class="arrow">More detail </a></article><article class="qa"><h3>Will it actually look like us?</h3><p>Your logo, colors and fonts on every name, slide and sponsor graphic, and every presentation formatted to fit the screen.</p><a href="event-presentation-graphics.html" class="arrow">More detail </a></article><article class="qa"><h3>Can you work with the hotel AV team?</h3><p>Yes. We call them before show day, sort out internet, power and screens, and tell you about their fees before you sign anything.</p><a href="faq.html#logistics" class="arrow">More detail </a></article><article class="qa"><h3>Can remote people do more than watch?</h3><p>Yes. A private, branded viewing page for up to 1,000 people, with live Q&amp;A relayed to the stage.</p><a href="corporate-livestream-production.html" class="arrow">More detail </a></article><article class="qa"><h3>What's this going to cost?</h3><p>One flat package price plus anything you add. Packages start at <span data-promo>$2,890 during launch pricing</span><span data-after>$3,400</span>. No surprise hourly line items on the invoice.</p><a href="packages.html" class="arrow">More detail </a></article><article class="qa"><h3>What do we walk away with?</h3><p>The full recording, ready for your on-demand library. Add photos, a highlight film and social clips for marketing to use after the event.</p><a href="faq.html#deliverables" class="arrow">More detail </a></article></div>
+  <div class="section-head"><span class="eyebrow">Straight answers</span><h2 id="pain">Common questions from event planners</h2>
+  <p class="lede">Straightforward answers about reliability, branding, venues and cost.</p></div>
+  <div class="qa-grid"><article class="qa"><h3>How do you keep the stream stable?</h3><p>We use a dedicated wired internet line instead of venue WiFi, run a full test before doors open, and record the program on site the entire time. If the venue has no wired line, we can bring Starlink.</p><a href="event-internet-starlink.html" class="arrow">More detail </a></article><article class="qa"><h3>Will it match our brand?</h3><p>We use your logo, colors and fonts on speaker names, slides and sponsor graphics, and format each presentation to fit the screens.</p><a href="event-presentation-graphics.html" class="arrow">More detail </a></article><article class="qa"><h3>Can you work with the hotel AV team?</h3><p>Yes. We coordinate internet, power and screen connections with the venue before show day, and let you know about any venue fees before you book.</p><a href="faq.html#logistics" class="arrow">More detail </a></article><article class="qa"><h3>Can remote attendees participate?</h3><p>Yes. We can set up a private, branded viewing page for up to 1,000 people, with live Q&amp;A relayed to the stage.</p><a href="corporate-livestream-production.html" class="arrow">More detail </a></article><article class="qa"><h3>What does it cost?</h3><p>Each package has one flat price, and add-ons are priced separately. Packages start at <span data-promo>$2,890 during launch pricing</span><span data-after>$3,400</span>.</p><a href="packages.html" class="arrow">More detail </a></article><article class="qa"><h3>What do we receive after the event?</h3><p>A full recording of the program, delivered as a download. Photos, a highlight film and social clips are available as add-ons.</p><a href="faq.html#deliverables" class="arrow">More detail </a></article></div>
 </div></section>
 
 <section class="stage" aria-labelledby="svc"><div class="stage-img" style="background-image:url(images/gala.jpg)"></div><div class="wrap">
@@ -394,17 +415,17 @@ html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-
 </div></section>
 
 <section style="background:var(--paper-2)" aria-labelledby="how"><div class="wrap">
-  <div class="section-head"><span class="eyebrow">How it works</span><h2 id="how">Four steps. None of them are yours to stress about.</h2></div>
+  <div class="section-head"><span class="eyebrow">How it works</span><h2 id="how">How it works</h2></div>
   <ol class="steps">
-    <li><h3>Book</h3><p>Pick a package. We coordinate the technical details with your venue.</p></li>
+    <li><h3>Book</h3><p>Choose a package. We coordinate the technical details with your venue.</p></li>
     <li><h3>Send materials</h3><p>Slides, logos and speaker names, 3 weeks before the event.</p></li>
-    <li><h3>Show day</h3><p>We arrive early, test everything and run the show. You focus on your guests.</p></li>
+    <li><h3>Show day</h3><p>We arrive early, test everything and run the production while you focus on your guests.</p></li>
     <li><h3>Delivery</h3><p>Your recording is delivered as a download to share and archive.</p></li>
   </ol>
 </div></section>
 
 <section aria-labelledby="pkh"><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Packages</span><h2 id="pkh">Pick a package. Skip the surprise invoice.</h2>
+  <div class="section-head"><span class="eyebrow">Packages</span><h2 id="pkh">Simple, flat package pricing</h2>
   <p class="lede">Crew, gear, switching and your recording are always included. Add only what you need.<span data-promo> Book before January 1, 2027 and take 15% off.</span></p></div>
   <div class="pk"><article class="pcard">
   <div><h3 style="font-size:26px">Essential</h3><p class="meta">1 camera · up to 2 hours</p></div>
@@ -456,6 +477,19 @@ html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-
     var t=btn.getAttribute('data-copy'), done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy email';},1800);};
     if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,function(){sel(btn)});}else sel(btn);});});
   function sel(btn){var el=document.querySelector('.email');if(!el)return;var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Press Ctrl/Cmd+C';}
+  var f=document.getElementById('quote-form');
+  if(f){f.addEventListener('submit',function(e){
+    e.preventDefault(); var st=document.getElementById('f-status'), btn=document.getElementById('f-submit');
+    if(!f.checkValidity()){var bad=f.querySelector(':invalid'); st.textContent='Please fill in the required fields.'; st.className='fstatus err'; if(bad) bad.focus(); return;}
+    if(f.access_key.value.indexOf('PASTE')===0){st.textContent='The form is not connected yet. Please email info@upliftavtech.com.'; st.className='fstatus err'; return;}
+    var data=new FormData(f), obj={}; data.forEach(function(v,k){ if(k==='addons'){obj[k]=obj[k]?obj[k]+', '+v:v;} else obj[k]=v; }); delete obj.redirect;
+    btn.disabled=true; btn.textContent='Sending...'; st.textContent=''; st.className='fstatus';
+    fetch(f.action,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(obj)})
+      .then(function(r){return r.json();}).then(function(j){
+        if(j.success){f.reset(); st.textContent='Thanks. Your request was sent. We will reply by email soon.'; st.className='fstatus ok'; btn.textContent='Sent';}
+        else throw new Error(j.message||'error');})
+      .catch(function(){st.textContent='Something went wrong. Please try again or email info@upliftavtech.com.'; st.className='fstatus err'; btn.disabled=false; btn.textContent='Send request';});
+  });}
 })();
 </script>
 </body>
