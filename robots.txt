@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://upliftavtech.com/sitemap.xml
