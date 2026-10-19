@@ -256,6 +256,26 @@ footer .logo img{height:36px;width:auto;margin-bottom:14px}
 footer .legal{grid-column:1/-1;border-top:1px solid #2C2D34;padding-top:20px;font-size:13px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* mobile package comparison */
+.cmp-m{display:none}
+@media (max-width:760px){
+  .tbl{display:none}
+  .cmp-m{display:flex;flex-direction:column;gap:16px}
+  .mcard{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px}
+  .mcard.feat{border-color:var(--gold)}
+  .mcard .mh{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px;border-bottom:1px solid var(--line);padding-bottom:12px}
+  .mcard h3{font-size:22px}
+  .mcard .mp{font-family:var(--display);font-size:20px}
+  .mcard .mp s{color:var(--muted);font-size:15px;font-family:var(--body);margin-right:4px}
+  .mcard .mh small{width:100%;font-size:13px;font-weight:800;color:var(--gold-ink)}
+  .mcard dl{margin:0;display:flex;flex-direction:column}
+  .mcard .r{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:12px;padding:9px 0;border-bottom:1px solid #EFEBE4;font-size:15px}
+  .mcard .r:last-child{border-bottom:0}
+  .mcard dt{color:var(--muted);font-weight:700}
+  .mcard dd{margin:0;font-weight:700;text-align:right}
+  .mcard .btn{width:100%}
+}
 html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-promo]{display:none!important}</style>
 </head>
 <body>

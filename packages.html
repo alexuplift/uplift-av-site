@@ -258,6 +258,26 @@ footer .logo img{height:36px;width:auto;margin-bottom:14px}
 footer .legal{grid-column:1/-1;border-top:1px solid #2C2D34;padding-top:20px;font-size:13px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* mobile package comparison */
+.cmp-m{display:none}
+@media (max-width:760px){
+  .tbl{display:none}
+  .cmp-m{display:flex;flex-direction:column;gap:16px}
+  .mcard{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px}
+  .mcard.feat{border-color:var(--gold)}
+  .mcard .mh{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px;border-bottom:1px solid var(--line);padding-bottom:12px}
+  .mcard h3{font-size:22px}
+  .mcard .mp{font-family:var(--display);font-size:20px}
+  .mcard .mp s{color:var(--muted);font-size:15px;font-family:var(--body);margin-right:4px}
+  .mcard .mh small{width:100%;font-size:13px;font-weight:800;color:var(--gold-ink)}
+  .mcard dl{margin:0;display:flex;flex-direction:column}
+  .mcard .r{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:12px;padding:9px 0;border-bottom:1px solid #EFEBE4;font-size:15px}
+  .mcard .r:last-child{border-bottom:0}
+  .mcard dt{color:var(--muted);font-weight:700}
+  .mcard dd{margin:0;font-weight:700;text-align:right}
+  .mcard .btn{width:100%}
+}
 html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-promo]{display:none!important}</style>
 </head>
 <body>
@@ -304,6 +324,7 @@ html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-
     <tr><th scope="row"><span data-promo>Standard rate</span><span data-after>Price</span></th><td><s data-promo>$3,400</s><span data-after><strong>$3,400</strong></span></td><td><s data-promo>$5,800</s><span data-after><strong>from $5,800</strong></span></td><td><s data-promo>$9,300</s><span data-after><strong>from $9,300</strong></span></td><td><span data-promo>—</span><span data-after>Inquire</span></td></tr>
     <tr class="launch" data-promo><th scope="row">Launch price (save 15%)</th><td>$2,890</td><td>from $4,930</td><td>from $7,905</td><td>Inquire</td></tr>
     </tbody></table></div>
+  <div class="cmp-m"><article class="mcard"><div class="mh"><h3>Essential</h3><div class="mp"><span data-promo><s>$3,400</s> <b>$2,890</b></span><span data-after><b>$3,400</b></span></div><span data-promo><small>Launch price · save 15%</small></span></div><dl><div class="r"><dt>Best for</dt><dd>Board meetings, town halls, single-speaker sessions</dd></div><div class="r"><dt>Cameras</dt><dd>1</dd></div><div class="r"><dt>Program length</dt><dd>Up to 2 hours</dd></div><div class="r"><dt>Production crew</dt><dd>Technical director</dd></div><div class="r"><dt>Live stream + live switching</dt><dd>✓</dd></div><div class="r"><dt>Streaming destination</dt><dd>1 platform</dd></div><div class="r"><dt>Presentation / slide integration</dt><dd>✓</dd></div><div class="r"><dt>Presentation prep</dt><dd>Add-on</dd></div><div class="r"><dt>On-screen names and titles</dt><dd>—</dd></div><div class="r"><dt>On-screen graphics</dt><dd>—</dd></div><div class="r"><dt>Recording delivery</dt><dd>Program recording</dd></div></dl><a class="btn btn-dark arrow" href="contact.html">Request Essential</a></article><article class="mcard feat"><div class="mh"><h3>Professional</h3><div class="mp"><span data-promo><s>$5,800</s> <b>from $4,930</b></span><span data-after><b>from $5,800</b></span></div><span data-promo><small>Launch price · save 15%</small></span></div><dl><div class="r"><dt>Best for</dt><dd>Conferences, panels, trainings</dd></div><div class="r"><dt>Cameras</dt><dd>2</dd></div><div class="r"><dt>Program length</dt><dd>Up to 4 hours</dd></div><div class="r"><dt>Production crew</dt><dd>Technical director + camera operator</dd></div><div class="r"><dt>Live stream + live switching</dt><dd>✓</dd></div><div class="r"><dt>Streaming destination</dt><dd>1 platform</dd></div><div class="r"><dt>Presentation / slide integration</dt><dd>✓</dd></div><div class="r"><dt>Presentation prep</dt><dd>1 presentation</dd></div><div class="r"><dt>On-screen names and titles</dt><dd>Branded</dd></div><div class="r"><dt>On-screen graphics</dt><dd>Branded logo + key points</dd></div><div class="r"><dt>Recording delivery</dt><dd>Program recording</dd></div></dl><a class="btn btn-gold arrow" href="contact.html">Request Professional</a></article><article class="mcard"><div class="mh"><h3>Executive</h3><div class="mp"><span data-promo><s>$9,300</s> <b>from $7,905</b></span><span data-after><b>from $9,300</b></span></div><span data-promo><small>Launch price · save 15%</small></span></div><dl><div class="r"><dt>Best for</dt><dd>Multi-session conferences, launches, galas, award shows</dd></div><div class="r"><dt>Cameras</dt><dd>3</dd></div><div class="r"><dt>Program length</dt><dd>Up to 6 hours</dd></div><div class="r"><dt>Production crew</dt><dd>Technical director + 2 camera operators</dd></div><div class="r"><dt>Live stream + live switching</dt><dd>✓</dd></div><div class="r"><dt>Streaming destination</dt><dd>Multiple platforms at once</dd></div><div class="r"><dt>Presentation / slide integration</dt><dd>✓</dd></div><div class="r"><dt>Presentation prep</dt><dd>Up to 3 presentations</dd></div><div class="r"><dt>On-screen names and titles</dt><dd>✓</dd></div><div class="r"><dt>On-screen graphics</dt><dd>✓</dd></div><div class="r"><dt>Recording delivery</dt><dd>Program + individual camera files</dd></div></dl><a class="btn btn-dark arrow" href="contact.html">Request Executive</a></article><article class="mcard"><div class="mh"><h3>Custom</h3><div class="mp"><b>Inquire</b></div></div><dl><div class="r"><dt>Best for</dt><dd>Multi-day, multi-room conferences and trade shows</dd></div><div class="r"><dt>Cameras</dt><dd>Custom</dd></div><div class="r"><dt>Program length</dt><dd>Full day or multi-day</dd></div><div class="r"><dt>Production crew</dt><dd>Scaled to your event</dd></div><div class="r"><dt>Live stream + live switching</dt><dd>✓</dd></div><div class="r"><dt>Streaming destination</dt><dd>Multiple platforms at once</dd></div><div class="r"><dt>Presentation / slide integration</dt><dd>✓</dd></div><div class="r"><dt>Presentation prep</dt><dd>Custom</dd></div><div class="r"><dt>On-screen names and titles</dt><dd>✓</dd></div><div class="r"><dt>On-screen graphics</dt><dd>✓</dd></div><div class="r"><dt>Recording delivery</dt><dd>Program + individual camera files</dd></div></dl><a class="btn btn-dark arrow" href="contact.html">Ask about Custom</a></article></div>
 </div></section>
 <section aria-labelledby="add"><div class="wrap">
   <div class="section-head"><span class="eyebrow">Add-ons</span><h2 id="add">Add only what your event needs</h2></div>
