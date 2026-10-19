@@ -38,6 +38,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Audio", "serviceType": "Audio", "provider": {"@id": "https://upliftavtech.com/#business"}, "areaServed": "Myrtle Beach and the Grand Strand, SC", "audience": {"@type": "BusinessAudience", "name": "Corporate event planners and marketing teams"}, "description": "We take a clean feed from the house sound system. If the venue has none, our sound package brings an engineer, a digital mixer and microphones."}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Photo and recap content", "serviceType": "Photo and recap content", "provider": {"@id": "https://upliftavtech.com/#business"}, "areaServed": "Myrtle Beach and the Grand Strand, SC", "audience": {"@type": "BusinessAudience", "name": "Corporate event planners and marketing teams"}, "description": "Add an event photographer with an edited online gallery, a recap videographer with a 2 to 3 minute highlight film, and short social reels."}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://upliftavtech.com/"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://upliftavtech.com/services.html"}]}</script>
+<script>if(Date.now()>=Date.parse('2027-01-01T00:00:00-05:00'))document.documentElement.classList.add('promo-over');</script>
 <style>/* Layout: white editorial pages broken by full-bleed charcoal "stage" bands; gold is the only accent, used like stage light. */
 :root{
   --ink:#1F2024; --ink-2:#4A4C53; --muted:#62646B; --paper:#FFFFFF; --paper-2:#F4F2EE; --line:#E3DFD8;
@@ -263,11 +264,11 @@ footer .logo img{height:36px;width:auto;margin-bottom:14px}
 footer .legal{grid-column:1/-1;border-top:1px solid #2C2D34;padding-top:20px;font-size:13px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-</style>
+html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-promo]{display:none!important}</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="strip"><div class="wrap"><span>Launch pricing: 15% off every package when you book before January 1, 2027.</span><a href="packages.html">See packages</a></div></div>
+<div class="strip" data-promo><div class="wrap"><span>Launch pricing: 15% off every package when you book before January 1, 2027.</span><a href="packages.html">See packages</a></div></div>
 <header class="nav"><div class="wrap">
   <a class="logo" href="index.html" aria-label="Uplift AV home"><img src="images/uplift-av-logo.png" alt="Uplift AV" width="180" height="45"></a>
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
