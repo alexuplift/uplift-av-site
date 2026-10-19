@@ -8,7 +8,9 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="canonical" href="https://upliftavtech.com/contact.html">
 <meta name="robots" content="index,follow">
-<meta name="theme-color" content="#141519">
+<meta name="theme-color" content="#161B24">
+<meta name="apple-mobile-web-app-title" content="Uplift AV">
+<meta name="format-detection" content="telephone=no">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Uplift AV">
 <meta property="og:title" content="Get a Corporate Event AV Quote | Contact Uplift AV">
@@ -280,11 +282,65 @@ footer .legal{grid-column:1/-1;border-top:1px solid #2C2D34;padding-top:20px;fon
   .mcard dd{margin:0;font-weight:700;text-align:right}
   .mcard .btn{width:100%}
 }
+
+/* ---- Apple device tuning ---- */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+a,button{-webkit-tap-highlight-color:rgba(184,145,95,.18)}
+.nav .logo{display:inline-flex;align-items:center;min-height:44px}
+.strip a{display:inline-flex;align-items:center;min-height:32px;padding:0 4px}
+.qa a,.arrow{min-height:44px;display:inline-flex;align-items:center}
+@media (hover:none){.btn:hover,.tile:hover{filter:none;border-color:inherit}}
+/* iPad portrait + phones: keep the hero to one screen */
+@media (max-width:960px){
+  .multiview{max-width:560px;width:100%;justify-self:center}
+}
+@media (max-width:600px){
+  .multiview{display:none}
+  .hero{padding-block:40px 44px}
+  .hero-copy{gap:18px}
+  .btns .btn{flex:1 1 auto}
+  .hero-facts{gap:6px 14px;font-size:13px}
+  .strip{font-size:13px}
+  .nav .logo img{height:30px}
+  section{padding-block:48px}
+  .section-head{margin-bottom:28px}
+  .qa{padding:22px}
+}
+/* iPhone SE and other 375px screens */
+@media (max-width:380px){
+  h1{font-size:31px}
+  .price .now{font-size:34px}
+}
+/* MacBook Pro 16 / large laptops */
+@media (min-width:1680px){
+  :root{--max:1320px}
+  body{font-size:18px}
+  h1{font-size:60px}
+  h2{font-size:40px}
+  .lede{font-size:21px}
+}
+/* Studio Display / iMac / external monitors */
+@media (min-width:2200px){
+  :root{--max:1480px}
+  body{font-size:19px}
+  h1{font-size:68px}
+  h2{font-size:44px}
+  h3{font-size:21px}
+  .lede{font-size:22px}
+  .nav .logo img{height:40px}
+  .btn{min-height:54px;font-size:17px}
+}
+.email{display:inline-flex;align-items:center;min-height:44px}
+.strip a{min-height:40px}
+.nav .wrap>nav{margin-left:auto}
+@media (max-width:900px){.nav .wrap{justify-content:flex-start}.nav .wrap>nav{margin-left:0}.menu-btn{margin-left:auto}}
+@media (min-width:744px) and (max-width:1024px){h1{font-size:44px}.page-hero h1{font-size:40px}}
+@media (max-width:600px){.strip .wrap{display:block;padding-block:8px;line-height:1.4}.strip a{display:inline;min-height:0;padding:0 0 0 6px}}
 html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-promo]{display:none!important}</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="strip" data-promo><div class="wrap"><span>Launch pricing: 15% off every package when you book before January 1, 2027.</span><a href="packages.html">See packages</a></div></div>
+<div class="strip" data-promo><div class="wrap"><span>Launch pricing: 15% off every package booked before Jan. 1, 2027.</span><a href="packages.html">See packages</a></div></div>
 <header class="nav"><div class="wrap">
   <a class="logo" href="index.html" aria-label="Uplift AV home"><img src="images/uplift-av-logo.png" alt="Uplift AV" width="180" height="45"></a>
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
