@@ -204,7 +204,7 @@ home = f'''
 <section aria-labelledby="listen"><div class="wrap statement">
   <span class="eyebrow">We listen first</span>
   <h2 id="listen">You don't need to speak AV.</h2>
-  <p class="big">Most of the people we work with are founders and event coordinators. Not tech people. And they shouldn't have to be.</p>
+  <p class="big">Most of our clients are founders and event coordinators with a lot on their plate. The technical side is our job.</p>
   <p>Tell us what this event means to you, who needs to feel included, and what you want people to walk away with. We'll take care of the cameras, cables and connections, and we'll only bring you the decisions that actually need you.</p>
 </div></section>
 
