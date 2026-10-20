@@ -609,3 +609,5 @@ h = idx[idx.index('<head>')+6:idx.index('</head>')].replace('<meta charset="utf-
 bd = idx[idx.index('<body>')+6:idx.index('</body>')]
 open(os.path.join(D,'artifact_index.html'),'w').write(h.strip()+'\n'+bd.strip())
 print('done')
+
+exec(open(os.path.join(D,'seo_post.py')).read())
