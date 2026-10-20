@@ -30,7 +30,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "@id": "https://upliftavtech.com/#business", "name": "Uplift AV", "description": "Corporate event AV and livestream production: multi-camera livestreams, hybrid events, IMAG, presentation and sponsor graphics, and hosted viewing for conferences, sales kickoffs, product launches, town halls and galas.", "url": "https://upliftavtech.com/", "email": "info@upliftavtech.com", "logo": "https://upliftavtech.com/images/uplift-av-logo.png", "image": "https://upliftavtech.com/images/og-image.jpg", "areaServed": [{"@type": "City", "name": "Myrtle Beach, SC"}, {"@type": "City", "name": "North Myrtle Beach, SC"}, {"@type": "City", "name": "Conway, SC"}, {"@type": "City", "name": "Surfside Beach, SC"}, {"@type": "Place", "name": "Murrells Inlet, SC"}, {"@type": "Place", "name": "Pawleys Island, SC"}, {"@type": "City", "name": "Georgetown, SC"}, {"@type": "City", "name": "Little River, SC"}, {"@type": "Town", "name": "Sunset Beach, NC"}, {"@type": "Town", "name": "Calabash, NC"}, {"@type": "Town", "name": "Ocean Isle Beach, NC"}, {"@type": "AdministrativeArea", "name": "Horry County, SC"}, {"@type": "AdministrativeArea", "name": "Georgetown County, SC"}, {"@type": "AdministrativeArea", "name": "Brunswick County, NC"}], "slogan": "Elevated production. Expanded reach.", "knowsAbout": ["Corporate event AV", "Hybrid event production", "Conference livestreaming", "Multi-camera video production", "IMAG", "Town hall streaming", "Product launch production", "Webinar production"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Event presentation and brand graphics", "serviceType": "Presentation and brand graphics", "description": "Presentations formatted for every screen, plus branded lower thirds, agenda and sponsor graphics for corporate events on the Grand Strand.", "provider": {"@id": "https://upliftavtech.com/#business"}, "url": "https://upliftavtech.com/event-presentation-graphics.html", "areaServed": [{"@type": "AdministrativeArea", "name": "Horry County, SC"}, {"@type": "AdministrativeArea", "name": "Georgetown County, SC"}, {"@type": "AdministrativeArea", "name": "Brunswick County, NC"}], "audience": {"@type": "BusinessAudience", "name": "Corporate event planners and marketing teams"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When do you need our presentations?", "acceptedAnswer": {"@type": "Answer", "text": "About 3 weeks before, with logos, brand guidelines and speaker names. That gives us time to build and test everything."}}, {"@type": "Question", "name": "Can you follow our brand guidelines?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Your logo, colors and fonts go on every name graphic, agenda slide and sponsor slide."}}, {"@type": "Question", "name": "Can speakers advance their own slides?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We give them a clicker. Or we advance from the production table on cue."}}]}</script>
@@ -361,6 +361,142 @@ a,button{-webkit-tap-highlight-color:rgba(184,145,95,.18)}
 .factions{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
 .fstatus{margin:0;font-size:15px;font-weight:600}
 .fstatus.ok{color:#1F7A4D}.fstatus.err{color:#B42318}
+
+/* =================== APPLE / SPACEX THEME =================== */
+/* Layout idea: black "stage" chapters with huge centered statements, white and #f5f5f7 chapters for detail; one gold accent. */
+:root{
+  --ink:#1d1d1f; --ink-2:#424245; --muted:#6e6e73; --paper:#fff; --paper-2:#f5f5f7; --line:#d2d2d7;
+  --stage:#000; --stage-2:#111113; --stage-ink:#f5f5f7; --stage-muted:#a1a1a6;
+  --gold:#C9A26E; --gold-ink:#8A6A3E; --gold-light:#DDBB88;
+  --display:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+  --body:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+  --max:1120px; --r:18px;
+}
+body{font-size:17px;line-height:1.5;letter-spacing:-.011em}
+h1,h2,h3,h4{letter-spacing:-.025em;line-height:1.06;font-weight:600}
+h1{font-size:clamp(40px,6.6vw,88px);letter-spacing:-.035em}
+h2{font-size:clamp(32px,4.8vw,60px);letter-spacing:-.03em}
+h3{font-size:21px;letter-spacing:-.015em;line-height:1.2}
+.lede{font-size:clamp(19px,1.6vw,23px);line-height:1.45;color:var(--muted);letter-spacing:-.015em}
+.stage .lede{color:var(--stage-muted)}
+.eyebrow{font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-ink)}
+.stage .eyebrow{color:var(--gold-light)}
+section{padding-block:clamp(72px,10vw,140px)}
+.section-head{max-width:860px;margin-left:auto;margin-right:auto;text-align:center;align-items:center;margin-bottom:clamp(40px,5vw,72px)}
+.section-head .lede{margin-inline:auto}
+
+/* nav: thin, translucent, Apple-like */
+.nav{background:rgba(255,255,255,.8);border-bottom:1px solid rgba(0,0,0,.08)}
+.nav .wrap{padding-block:8px}
+.nav ul a{font-size:14px;font-weight:500;border-radius:980px;padding:0 12px;color:var(--ink)}
+.nav ul a[aria-current="page"]{background:transparent;color:var(--ink);font-weight:600}
+.nav ul a:hover{background:transparent;color:var(--gold-ink)}
+.nav .logo img{height:28px}
+.strip{background:#000;color:#f5f5f7;font-weight:500;font-size:13px}
+.strip a{color:var(--gold-light)}
+
+/* buttons: Apple pills */
+.btn{border-radius:980px;min-height:46px;padding:0 24px;font-weight:500;font-size:16px;letter-spacing:-.01em}
+.btn-gold{background:var(--gold);color:#111}
+.btn-gold:hover{background:var(--gold-light)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-line{border:1.5px solid currentColor;background:transparent}
+.nav .btn{min-height:34px;padding:0 16px;font-size:14px}
+.arrow::after{content:"›";font-size:1.25em;line-height:1;margin-left:2px}
+.btns{justify-content:inherit}
+
+/* stage chapters */
+.stage-img::after{background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.72) 60%,rgba(0,0,0,.9) 100%)}
+
+/* hero: centered, cinematic */
+.hero{padding-block:clamp(72px,9vw,128px) 0;text-align:center}
+.hero .wrap{grid-template-columns:minmax(0,1fr);gap:clamp(40px,5vw,72px);justify-items:center}
+.hero-copy{align-items:center;max-width:900px;gap:22px}
+.hero h1 span{color:var(--gold-light)}
+.hero .lede{max-width:700px;font-size:clamp(19px,1.7vw,24px)}
+.hero .btns{justify-content:center}
+.hero-facts{justify-content:center;color:var(--stage-muted)}
+.hero .multiview{max-width:960px;width:100%;margin-bottom:-1px;border-radius:18px 18px 0 0;border-bottom:0;box-shadow:0 -20px 80px rgba(201,162,110,.12)}
+.page-hero{text-align:center;padding-block:clamp(72px,9vw,128px)}
+.page-hero .wrap{align-items:center}
+.page-hero .lede{margin-inline:auto;max-width:720px}
+.page-hero .btns{justify-content:center}
+
+/* big statements */
+.statement{text-align:center;max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px;align-items:center}
+.statement p{font-size:clamp(20px,1.9vw,26px);line-height:1.45;color:var(--muted);letter-spacing:-.018em;max-width:760px}
+.stage .statement p{color:var(--stage-muted)}
+.statement .big{font-size:clamp(26px,3vw,40px);line-height:1.25;color:var(--ink);font-weight:600;letter-spacing:-.025em;max-width:900px}
+.stage .statement .big{color:var(--stage-ink)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:clamp(40px,5vw,64px);width:100%}
+@media (max-width:700px){.stats{grid-template-columns:minmax(0,1fr)}}
+.stats div{display:flex;flex-direction:column;gap:6px;align-items:center}
+.stats b{font-size:clamp(34px,4vw,52px);font-weight:600;letter-spacing:-.03em;color:var(--stage-ink)}
+.stats span{color:var(--stage-muted);font-size:15px}
+
+/* feeling tiles */
+.feel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:760px){.feel{grid-template-columns:minmax(0,1fr)}}
+.feel a{position:relative;isolation:isolate;overflow:hidden;border-radius:22px;min-height:clamp(320px,34vw,460px);padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;justify-content:flex-end;gap:10px;color:#f5f5f7;text-decoration:none;background:#000 center/cover}
+.feel a::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,0) 20%,rgba(0,0,0,.82) 100%)}
+.feel h3{font-size:clamp(26px,2.6vw,36px);letter-spacing:-.025em}
+.feel p{color:#c7c7cc;font-size:17px;max-width:44ch}
+.feel .more{color:var(--gold-light);font-weight:500}
+.feel a:hover h3{color:var(--gold-light)}
+
+/* cards and grids softened */
+.qa{background:var(--paper-2);border-radius:var(--r);padding:30px}
+.stage .qa{background:var(--stage-2)}
+.tile{background:var(--stage-2);border-color:#1f1f22;border-radius:var(--r)}
+.aud article,.pcard,.card,.mcard,.qform{border-radius:var(--r)}
+.pcard{border-color:var(--line)}
+.pcard.feat{border-color:var(--gold);box-shadow:0 30px 60px rgba(0,0,0,.08)}
+.pcard .badge{border-radius:980px}
+.price .now{font-weight:600;letter-spacing:-.03em}
+.steps li{border-top:1px solid var(--line);padding-top:22px}
+.steps li::before{color:var(--gold-ink);font-weight:600;letter-spacing:.2em;font-size:12px}
+.steps h3{font-size:24px}
+.tbl{border-radius:var(--r)}
+.tbl thead th{background:var(--ink)}
+.faq details{border-radius:14px}
+.faq summary{font-family:var(--body);font-weight:600;font-size:18px;letter-spacing:-.015em}
+.chips{justify-content:center}
+.chips a{border-radius:980px;font-weight:500}
+.toc a{border-radius:980px}
+
+/* needs list (protection) */
+.needs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;max-width:980px;margin:0 auto}
+@media (max-width:760px){.needs{grid-template-columns:minmax(0,1fr)}}
+.needs div{border-top:1px solid var(--line);padding:22px 0;display:flex;flex-direction:column;gap:6px}
+.needs b{font-size:18px;font-weight:600;letter-spacing:-.015em}
+.needs p{color:var(--muted);font-size:16px}
+.fine{max-width:780px;margin:32px auto 0;text-align:center;color:var(--muted);font-size:14px}
+
+/* cta */
+.cta{text-align:center}
+.cta .wrap{flex-direction:column;justify-content:center;align-items:center;gap:28px}
+.cta h2{max-width:none}
+.cta .btns{justify-content:center}
+
+/* footer */
+footer{background:var(--paper-2);color:var(--muted);font-size:13px}
+footer h4{color:var(--ink);letter-spacing:.12em;font-size:12px}
+footer a{color:var(--ink-2)}
+footer a:hover{color:var(--gold-ink)}
+footer .legal{border-top-color:var(--line)}
+
+@media (max-width:600px){
+  .hero{padding-top:56px}
+  .hero .multiview{display:grid;border-radius:14px 14px 0 0;padding:8px;gap:6px}
+  .hero .multiview .mv span{font-size:9px}
+  .hero .multiview .lt{display:none}
+  section{padding-block:64px}
+  .statement .big{font-size:24px}
+}
+.multiview{text-align:left}
+.stats b{white-space:nowrap}
+.hero .multiview{max-width:840px}
+@media (min-width:901px){.nav .btn{min-height:36px}}
 html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-promo]{display:none!important}</style>
 </head>
 <body>
@@ -406,7 +542,7 @@ html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-
   <div class="chips"><a href="event-av-myrtle-beach.html">Myrtle Beach</a><a href="event-av-north-myrtle-beach.html">North Myrtle Beach</a><a href="event-av-conway.html">Conway</a><a href="event-av-little-river.html">Little River</a><a href="event-av-surfside-beach-garden-city.html">Surfside Beach</a><a href="event-av-murrells-inlet.html">Murrells Inlet</a><a href="event-av-pawleys-island-litchfield.html">Pawleys Island</a><a href="event-av-georgetown.html">Georgetown</a><a href="event-av-sunset-beach-calabash.html">Sunset Beach</a><a href="event-av-ocean-isle-beach.html">Ocean Isle Beach</a><a href="areas.html">All areas →</a></div>
 </div></section>
 <section class="stage cta"><div class="stage-img" style="background-image:url(images/beams.jpg)"></div><div class="wrap">
-  <div style="display:flex;flex-direction:column;gap:14px"><h2>Tell us about your event.</h2><p class="lede">Send the date, the venue and a rough headcount. We'll take it from there and get you a real number.</p></div>
+  <div style="display:flex;flex-direction:column;gap:14px"><h2>Let's talk about your event.</h2><p class="lede">Tell us what you're planning and what it means to you. We'll listen first, then send a clear quote.</p></div>
   <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Get a quote</a><a class="btn btn-line" href="packages.html">Compare packages</a></div>
 </div></section>
 
