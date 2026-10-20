@@ -1,6 +1,6 @@
 import json, os, html, re
 PROMO_END='2027-01-01T00:00:00-05:00'
-FORM_KEY='PASTE-WEB3FORMS-ACCESS-KEY'
+FORM_KEY='83d41300-159b-4f70-9da2-161ecf736240'
 AREA_LIST=['Myrtle Beach','North Myrtle Beach','Conway','Little River','Surfside Beach / Garden City','Murrells Inlet','Pawleys Island / Litchfield','Georgetown','Sunset Beach / Calabash','Ocean Isle Beach']
 AREA_OPTS=''.join(f'<option>{a}</option>' for a in AREA_LIST)
 ADDON_CHECKS=''.join(f'<label><input type="checkbox" name="addons" value="{a}"> {a}</label>' for a in ['IMAG to venue screens','Extra cameras','Hosted viewing page','Multiple platforms','Sound package','Starlink internet','Photography','Recap film','Social reels'])
