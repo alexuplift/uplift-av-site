@@ -503,6 +503,9 @@ footer .legal{border-top-color:var(--line)}
 @media (max-width:760px){.creds{grid-template-columns:repeat(2,minmax(0,1fr))}.creds div{padding:18px 12px}.creds b{font-size:17px}.creds span{font-size:13px}}
 .feel a{background-position:center 12%;background-size:cover}
 .feel a::before{background:linear-gradient(180deg,rgba(0,0,0,0) 25%,rgba(0,0,0,.55) 55%,rgba(0,0,0,.92) 100%)}
+.hero h1.eyebrow{font-size:12px;line-height:1.4;letter-spacing:.22em;font-weight:600;margin:0}
+.display{font-size:clamp(40px,6.6vw,88px);font-weight:600;letter-spacing:-.035em;line-height:1.06;color:var(--stage-ink);margin:0;text-wrap:balance}
+.display span{color:var(--gold-light)}
 html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-promo]{display:none!important}</style>
 </head>
 <body>
@@ -518,7 +521,7 @@ html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-
 <section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/beams.jpg)"></div><div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Contact</nav>
   <span class="eyebrow">Contact</span><h1 id="h1">Tell us about your event.</h1>
-  <p class="lede">We read every request ourselves. You'll hear back from a real person, usually within a business day.</p>
+  <p class="lede">We reply within one business day, usually sooner.</p>
 </div></section>
 <section><div class="wrap contact-grid">
   <form id="quote-form" class="qform" action="https://api.web3forms.com/submit" method="POST" novalidate>
@@ -528,7 +531,7 @@ html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-
     <input type="hidden" name="redirect" value="https://upliftavtech.com/thanks.html">
     <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
     <h2 style="font-size:28px">Start here</h2>
-    <p class="muted-sm">Fields with * are required. We reply by email, usually within a business day.</p>
+    <p class="muted-sm">* Required</p>
     <div class="fgrid">
       <label class="fld">Name *<input id="f-name" name="name" required autocomplete="name"></label>
       <label class="fld">Company *<input id="f-company" name="company" required autocomplete="organization"></label>

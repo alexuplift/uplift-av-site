@@ -118,7 +118,7 @@ FOOT = f'''<footer><div class="wrap">
   <div class="legal"><span>© 2026 Uplift AV. All rights reserved.</span><span>Corporate event AV · Hybrid events · Livestream production · IMAG</span></div>
 </div></footer>'''
 
-def cta(h="Let's talk about your event.", p="Tell us what you're planning and what it means to you. We'll listen first, then send a clear quote."):
+def cta(h="Let's talk about your event.", p="Tell us what you're planning. We'll send a clear quote."):
     return f'''<section class="stage cta"><div class="stage-img" style="background-image:url(images/beams.jpg)"></div><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:14px"><h2>{h}</h2><p class="lede">{p}</p></div>
   <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Get a quote</a><a class="btn btn-line" href="packages.html">Compare packages</a></div>
@@ -193,9 +193,9 @@ def multiview():
 home = f'''
 <section class="stage hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/hero-stage.jpg)"></div><div class="wrap">
   <div class="hero-copy">
-    <span class="eyebrow">Uplift AV · Corporate events · Grand Strand</span>
-    <h1 id="h1">Your moment, <span>on every screen.</span></h1>
-    <p class="lede">You've spent months planning this. We make it look and sound the way it feels, in the room and for everyone watching from somewhere else.</p>
+    <h1 id="h1" class="eyebrow">Corporate event AV &amp; livestreaming in Myrtle Beach, SC</h1>
+    <p class="display">Your moment, <span>on every screen.</span></p>
+    <p class="lede">Livestreaming, multi-camera production, IMAG screens and branded graphics for conferences, kickoffs, town halls and galas.</p>
     <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Start with a conversation</a><a class="btn btn-line" href="packages.html">See packages</a></div>
   </div>
   {multiview()}
@@ -205,33 +205,33 @@ home = f'''
   <span class="eyebrow">We listen first</span>
   <h2 id="listen">You don't need to speak AV.</h2>
   <p class="big">Most of our clients are founders and event coordinators with a lot on their plate. Your job is the event: your guests, your program, your message. The technical side is ours.</p>
-  <p>Tell us what this event means to you, who needs to feel included, and what you want people to walk away with. We'll take care of the cameras, cables and connections, and we'll only bring you the decisions that actually need you.</p>
+  <p>Tell us what matters. We handle the cameras, cables and connections, and only bring you the decisions that need you.</p>
 </div></section>
 
 <section class="stage" aria-labelledby="exp"><div class="stage-img" style="background-image:url(images/festival.jpg)"></div><div class="wrap statement">
   <span class="eyebrow">Experience</span>
   <h2 id="exp">Built on festival stages and broadcast sets.</h2>
-  <p>Since 2016, our crew has worked corporate events, major music festivals, large commercial productions and television broadcasts. Live work, no second takes. Your event gets that same preparation, and the same calm on show day.</p>
+  <p>Since 2016: corporate events, major music festivals, commercial productions and live TV broadcasts. Your event gets the same preparation.</p>
   <div class="creds"><div><b>Corporate</b><span>Conferences and leadership events</span></div><div><b>Music festivals</b><span>Large crowds, big stages</span></div><div><b>Commercials</b><span>Large commercial productions</span></div><div><b>TV and broadcast</b><span>Live, on schedule</span></div></div>
 </div></section>
 
 <section style="background:var(--paper-2)" aria-labelledby="feel"><div class="wrap">
   <div class="section-head"><span class="eyebrow">What you get</span><h2 id="feel">It's about how it feels.</h2>
-  <p class="lede">The gear matters to us. What matters to you is what happens in the room.</p></div>
+  <p class="lede">What your audience experiences, in the room and online.</p></div>
   <div class="feel">
-    <a href="imag-event-screens.html" style="background-image:url(images/imag.jpg)"><h3>The room feels close.</h3><p>Your speakers on the big screens, so the back row feels like the front row.</p><span class="more arrow">IMAG</span></a>
-    <a href="corporate-livestream-production.html" style="background-image:url(images/broadcast.jpg)"><h3>People far away feel invited.</h3><p>A real broadcast for the people who couldn't make the trip. They can ask questions too.</p><span class="more arrow">Livestreaming</span></a>
-    <a href="event-presentation-graphics.html" style="background-image:url(images/conference.jpg)"><h3>Your brand looks like you.</h3><p>Every slide, name and sponsor graphic in your colors and fonts, sized for every screen.</p><span class="more arrow">Graphics</span></a>
-    <a href="multi-camera-event-production.html" style="background-image:url(images/gala.jpg)"><h3>And you get to enjoy it.</h3><p>Our crew runs everything quietly in the background. You stay with your guests.</p><span class="more arrow">Cameras and crew</span></a>
+    <a href="imag-event-screens.html" style="background-image:url(images/imag.jpg)"><h3>The room feels close.</h3><p>IMAG puts your speakers on the big screens for the whole room.</p><span class="more arrow">IMAG</span></a>
+    <a href="corporate-livestream-production.html" style="background-image:url(images/broadcast.jpg)"><h3>People far away feel invited.</h3><p>A multi-camera livestream for remote attendees, with live Q&amp;A.</p><span class="more arrow">Livestreaming</span></a>
+    <a href="event-presentation-graphics.html" style="background-image:url(images/conference.jpg)"><h3>Your brand looks like you.</h3><p>Slides, speaker names and sponsor graphics in your colors and fonts.</p><span class="more arrow">Graphics</span></a>
+    <a href="multi-camera-event-production.html" style="background-image:url(images/gala.jpg)"><h3>And you get to enjoy it.</h3><p>Our crew runs the production. You stay with your guests.</p><span class="more arrow">Cameras and crew</span></a>
   </div>
 </div></section>
 
 <section aria-labelledby="how"><div class="wrap">
   <div class="section-head"><span class="eyebrow">How it goes</span><h2 id="how">Simple, from the first call.</h2></div>
   <ol class="steps">
-    <li><h3>Tell us about it</h3><p>A short call. What's the event, who's it for, and what would make it a win for you.</p></li>
-    <li><h3>We plan it</h3><p>We talk to the venue, plan the cameras and build your graphics. You approve the parts that matter.</p></li>
-    <li><h3>You host</h3><p>We arrive early and run everything in the background. One crew, start to finish.</p></li>
+    <li><h3>Tell us about it</h3><p>A short call about the event, the audience and your goals.</p></li>
+    <li><h3>We plan it</h3><p>We coordinate with the venue, plan cameras and build your graphics. You approve.</p></li>
+    <li><h3>You host</h3><p>We arrive early and run everything. One crew, start to finish.</p></li>
     <li><h3>You keep it</h3><p>The full recording, plus photos and a highlight film if you want them.</p></li>
   </ol>
 </div></section>
@@ -245,7 +245,7 @@ home = f'''
 
 <section aria-labelledby="need"><div class="wrap">
   <div class="section-head"><span class="eyebrow">The fine print, in plain words</span><h2 id="need">A few things we'll need from you.</h2>
-  <p class="lede">We keep the technical side off your plate. These few things have to come from you or your venue, so we put them in writing up front.</p></div>
+  <p class="lede">These come from you or your venue. We put them in writing up front.</p></div>
   <div class="needs">
     <div><b>A wired internet line</b><p>A dedicated line from the venue. We don't stream over WiFi. If there's no line, we can bring Starlink.</p></div>
     <div><b>A sound feed</b><p>A feed from the venue's sound system, or our sound package if they don't have one.</p></div>
@@ -306,7 +306,7 @@ services = f'''
 <section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/broadcast.jpg)"></div><div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Services</nav>
   <span class="eyebrow">Services</span><h1 id="h1">Everything happens in the background.</h1>
-  <p class="lede">You host. We handle the cameras, the screens, the stream and the sound. Here's what each piece does for your event.</p>
+  <p class="lede">Livestreaming, cameras and crew, IMAG, graphics, internet, audio and recap video for corporate events on the Grand Strand.</p>
   <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Get a quote</a><a class="btn btn-line" href="packages.html">See packages</a></div>
 </div></section>
 <div class="wrap">
@@ -385,19 +385,19 @@ packages = f'''
 # ---------------- FAQ ----------------
 FAQ = [
  ('reliability','Reliability',[
-  ('Will our livestream drop or lag?','We take it seriously, and we\'re honest about it. Dedicated wired line, never the venue WiFi. A full test stream before the event starts. If there\'s no wired line, Starlink, with a cellular backup for multi-day events. No one can promise an internet connection, though, which is why we also record on site.'),
-  ('What if the venue has no wired internet?','We can run cable up to 600 feet from the venue switch to our table. If there\'s no wired line at all, our Starlink add-on handles the stream. We still ask for a wired line first. It\'s the better option.'),
-  ('What happens if something goes wrong during the event?','The program records on site the whole time, separate from the stream. So even if the internet interrupts the stream, you still have the full recording. Our technical director watches the stream for the entire program.')]),
+  ('Will our livestream drop or lag?','We stream over a dedicated wired line, never venue WiFi, and run a full test before the event. No wired line? Starlink, with cellular backup for multi-day events. No one can guarantee internet, so we also record on site.'),
+  ('What if the venue has no wired internet?','We run cable up to 600 feet from the venue switch. With no wired line, our Starlink add-on handles the stream.'),
+  ('What happens if something goes wrong during the event?','The program records on site, separate from the stream, so you keep the full recording either way. Our technical director monitors the stream throughout.')]),
  ('cost','Cost',[
   ('How much does a livestream cost?','Essential is $3,400. That\'s 1 camera, up to 2 hours. Professional starts at $5,800 (2 cameras, up to 4 hours), and Executive starts at $9,300 (3 cameras, up to 6 hours). Add-ons are priced separately.'+P(' Book before January 1, 2027 and they\'re 15% off: $2,890, $4,930 and $7,905.')),
-  ('Are there hidden fees?','No. Your quote lists the package and every add-on. The one thing we don\'t control is the venue. Some charge for an internet line or for connecting to their projectors. Those are billed by the venue, and we tell you about them before you book.')]),
+  ('Are there hidden fees?','No. Your quote lists the package and every add-on. Some venues charge for an internet line or projector connections; those are billed by the venue, and we flag them before you book.')]),
  ('logistics','Logistics',[
   ('What do we need to provide?','A wired internet line, a feed from the house sound system, a table with power near the stage. Screens too, if you want IMAG. We sort out the details with the venue.'),
-  ("Can you work with the hotel or venue's in-house AV team?",'Yes. We talk to them before show day about internet, power, audio and screens. If they charge fees for any of it, you hear about it before you book.'),
-  ('Can remote attendees ask questions?','Yes. With a hosted viewing page we run Zoom or whatever platform you prefer, and remote people can send in questions. Someone reads them on stage.'),
+  ("Can you work with the hotel or venue's in-house AV team?",'Yes. We coordinate internet, power, audio and screens with in-house AV before show day, and flag any venue fees before you book.'),
+  ('Can remote attendees ask questions?','Yes. With a hosted viewing page, remote attendees submit questions through Zoom or your platform, and they\'re read on stage.'),
   ('Do we need our own staff to run it?','No. Our crew runs it. What we need from your team: the materials and the run of show, ahead of time.'),
   ('How far in advance should we book?','As early as you can. Then get us presentations, logos and speaker names about 3 weeks before, so the graphics are built and tested.'),
-  ('Can you stream to Zoom, LinkedIn, YouTube and our website at the same time?','Yes. Executive includes several platforms at once. For the other packages it\'s an add-on. We can also host a private viewing page for up to 500 or 1,000 viewers.'),
+  ('Can you stream to Zoom, LinkedIn, YouTube and our website at the same time?','Yes. Executive includes multi-platform streaming; it\'s an add-on for other packages. We also host private viewing pages for up to 1,000 viewers.'),
   ('Can you put the speaker on the screens in the room?','Yes. That\'s IMAG. Our camera shots and slides go to the venue projectors and TVs while we stream.')]),
  ('deliverables','Deliverables',[
   ('Do we get a recording of the event?','Yes, every package. It comes as a download. Executive also includes the separate camera files, in case you want to edit later.'),
@@ -409,7 +409,7 @@ faq = f'''
 <section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/town-hall.jpg)"></div><div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / FAQ</nav>
   <span class="eyebrow">FAQ</span><h1 id="h1">Good questions. Honest answers.</h1>
-  <p class="lede">Reliability, cost, logistics, and what you get afterward. Short answers.</p>
+  <p class="lede">Livestream reliability, pricing, venue logistics and deliverables.</p>
 </div></section>
 <section><div class="wrap faq-cols">
   <nav class="toc" aria-label="FAQ topics">{''.join(f'<a href="#{a}">{t}</a>' for a,t,_ in FAQ)}</nav>
@@ -423,7 +423,7 @@ contact = f'''
 <section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/beams.jpg)"></div><div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Contact</nav>
   <span class="eyebrow">Contact</span><h1 id="h1">Tell us about your event.</h1>
-  <p class="lede">We read every request ourselves. You'll hear back from a real person, usually within a business day.</p>
+  <p class="lede">We reply within one business day, usually sooner.</p>
 </div></section>
 <section><div class="wrap contact-grid">
   <form id="quote-form" class="qform" action="https://api.web3forms.com/submit" method="POST" novalidate>
@@ -433,7 +433,7 @@ contact = f'''
     <input type="hidden" name="redirect" value="{DOMAIN}/thanks.html">
     <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
     <h2 style="font-size:28px">Start here</h2>
-    <p class="muted-sm">Fields with * are required. We reply by email, usually within a business day.</p>
+    <p class="muted-sm">* Required</p>
     <div class="fgrid">
       <label class="fld">Name *<input id="f-name" name="name" required autocomplete="name"></label>
       <label class="fld">Company *<input id="f-company" name="company" required autocomplete="organization"></label>
