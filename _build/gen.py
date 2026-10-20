@@ -220,7 +220,7 @@ home = f'''
 <section class="stage" aria-labelledby="exp"><div class="stage-img" style="background-image:url(images/festival.jpg)"></div><div class="wrap statement">
   <span class="eyebrow">Experience</span>
   <h2 id="exp">Built on festival stages and broadcast sets.</h2>
-  <p>Since 2016: corporate events, major music festivals, commercial productions and live TV broadcasts. Your event gets the same preparation.</p>
+  <p>Since 2016: corporate events, music festivals, commercial productions and live TV broadcasts. Your event gets the same preparation.</p>
   <div class="creds"><div><b>Corporate</b><span>Conferences and leadership events</span></div><div><b>Music festivals</b><span>Large crowds, big stages</span></div><div><b>Commercials</b><span>Large commercial productions</span></div><div><b>TV and broadcast</b><span>Live, on schedule</span></div></div>
 </div></section>
 
