@@ -653,6 +653,11 @@ who_body = f"""
   <div class="section-head"><span class="eyebrow">Choose your event</span><h2 id="aud">Different crowds. The same standard.</h2></div>
   <div class="feel">{AUD_CARDS}</div>
 </div></section>
+<section style="background:var(--paper-2)" aria-labelledby="one"><div class="wrap statement">
+  <span class="eyebrow">One team</span>
+  <h2 id="one">The same crew, whatever the crowd.</h2>
+  <p>A convention general session, a company town hall, a festival stage and a championship game need different setups. They need the same preparation: a venue walkthrough, a written plan, a tested stream and a crew that has done it before. Since 2016 we have produced events from Georgetown to Ocean Isle Beach, and every event gets that standard.</p>
+</div></section>
 {cta()}
 """
 who_ld=[{"@context":"https://schema.org","@type":"CollectionPage","name":"Who Uplift AV serves","url":DOMAIN+"/who-we-serve.html","about":{"@id":DOMAIN+"/#business"},"hasPart":[{"@type":"WebPage","name":a['name'],"url":DOMAIN+"/"+a['file']} for a in AUDS]}, crumbs('Who we serve','who-we-serve.html')]

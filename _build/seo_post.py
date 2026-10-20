@@ -6,6 +6,8 @@ T={
  'index':("Event Production & Livestreaming Myrtle Beach | Uplift AV","Event production and livestreaming on the Grand Strand: multi-camera, IMAG screens and recap video for conventions, corporate events, festivals and tournaments."),
  'services':("Event Production Services in Myrtle Beach | Uplift AV","Livestreaming, multi-camera crews, IMAG, presentation graphics, event internet, audio and recap video for conventions, corporate events and festivals."),
  'packages':("Livestream & Event AV Packages and Pricing | Uplift AV","Compare Essential, Professional and Executive event livestream packages. Flat pricing with crew, live switching and your recording included. Grand Strand, SC."),
+ 'event-av-myrtle-beach':("Event AV & Livestreaming in Myrtle Beach, SC | Uplift AV",None),
+ 'who-we-serve':("Who We Serve: Event Production Myrtle Beach | Uplift AV","Event production and livestreaming for association conventions, corporate events, festivals and tournaments across Myrtle Beach and the Grand Strand."),
  'faq':("Event Production & Livestream FAQ | Uplift AV","Answers for event planners: internet and stream planning, cost, working with hotel AV, remote Q&A, what the venue provides and what you receive afterward."),
  'contact':("Get an Event Production Quote | Contact Uplift AV","Request a quote for event production and livestreaming in Myrtle Beach and the Grand Strand: conventions, corporate events, festivals and tournaments."),
  'areas':("Event Production Service Areas, Grand Strand | Uplift AV","Event production and livestreaming in Myrtle Beach, North Myrtle Beach, Conway, Murrells Inlet, Pawleys Island, Georgetown, Little River and Ocean Isle Beach."),
