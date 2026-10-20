@@ -54,14 +54,16 @@ ICON = {
 import importlib.util as _iu2
 _sp2=_iu2.spec_from_file_location('services_data',os.path.join(D,'services_data.py')); _m2=_iu2.module_from_spec(_sp2); _sp2.loader.exec_module(_m2)
 SERVICES=_m2.SERVICES; SBY={x['key']:x for x in SERVICES}; SFILE={x['key']:x['file'] for x in SERVICES}
-NAV = [('index.html','Home'),('services.html','Services'),('packages.html','Packages'),('areas.html','Areas'),('faq.html','FAQ'),('contact.html','Contact')]
+_sp3=_iu2.spec_from_file_location('audiences',os.path.join(D,'audiences.py')); _m3=_iu2.module_from_spec(_sp3); _sp3.loader.exec_module(_m3)
+AUDS=_m3.AUDIENCES; ABY={a['key']:a for a in AUDS}
+NAV = [('index.html','Home'),('who-we-serve.html','Who we serve'),('services.html','Services'),('packages.html','Packages'),('areas.html','Areas'),('faq.html','FAQ'),('contact.html','Contact')]
 
 ORG = {"@context":"https://schema.org","@type":"ProfessionalService","@id":DOMAIN+"/#business","name":"Uplift AV",
- "description":"Corporate event AV and livestream production: multi-camera livestreams, hybrid events, IMAG, presentation and sponsor graphics, and hosted viewing for conferences, sales kickoffs, product launches, town halls and galas.",
+ "description":"Event production and livestreaming on the Grand Strand: multi-camera production, livestreams, IMAG screens, presentation and sponsor graphics, and recap video for association conventions, corporate events, festivals and sports tournaments.",
  "url":DOMAIN+"/","email":EMAIL,"logo":DOMAIN+"/images/uplift-av-logo.png","image":DOMAIN+"/images/og-image.jpg",
  "areaServed":[{"@type":"City","name":"Myrtle Beach, SC"},{"@type":"City","name":"North Myrtle Beach, SC"},{"@type":"City","name":"Conway, SC"},{"@type":"City","name":"Surfside Beach, SC"},{"@type":"Place","name":"Murrells Inlet, SC"},{"@type":"Place","name":"Pawleys Island, SC"},{"@type":"City","name":"Georgetown, SC"},{"@type":"City","name":"Little River, SC"},{"@type":"Town","name":"Sunset Beach, NC"},{"@type":"Town","name":"Calabash, NC"},{"@type":"Town","name":"Ocean Isle Beach, NC"},{"@type":"AdministrativeArea","name":"Horry County, SC"},{"@type":"AdministrativeArea","name":"Georgetown County, SC"},{"@type":"AdministrativeArea","name":"Brunswick County, NC"}],
  "slogan":"Elevated production. Expanded reach.",
- "knowsAbout":["Corporate event AV","Hybrid event production","Conference livestreaming","Multi-camera video production","IMAG","Town hall streaming","Product launch production","Webinar production"]}
+ "knowsAbout":["Event production","Conference and convention AV","Corporate event production","Festival and concert IMAG","Tournament livestreaming","Hybrid event production","Multi-camera video production","Town hall streaming"]}
 
 def head(slug, title, desc, extra_ld=None):
     url = DOMAIN + '/' + ('' if slug=='index.html' else slug)
@@ -110,12 +112,12 @@ def top(slug):
 
 FOOT = f'''<footer><div class="wrap">
   <div><a class="logo" href="index.html" aria-label="Uplift AV home"><img src="images/uplift-av-logo.png" alt="Uplift AV" width="180" height="45"></a>
-  <p>Corporate event AV and livestream production for conferences, meetings, launches and galas across {AREA}.</p></div>
+  <p>Event production and livestreaming for conventions, corporate events, festivals and tournaments across {AREA}.</p></div>
   <div><h4>Explore</h4><ul>{''.join(f'<li><a href="{h}">{t}</a></li>' for h,t in NAV)}</ul></div>
   <div><h4>Services</h4><ul>{''.join(f'<li><a href="{x["file"]}">{x["name"]}</a></li>' for x in SERVICES)}</ul></div>
   <div><h4>Areas</h4><ul>{''.join(f'<li><a href="event-av-{c_}.html">{n_}</a></li>' for c_,n_ in [('myrtle-beach','Myrtle Beach'),('north-myrtle-beach','North Myrtle Beach'),('conway','Conway'),('murrells-inlet','Murrells Inlet'),('pawleys-island-litchfield','Pawleys Island'),('georgetown','Georgetown'),('little-river','Little River'),('sunset-beach-calabash','Sunset Beach'),('ocean-isle-beach','Ocean Isle Beach')])}<li><a href="areas.html">All areas</a></li></ul></div>
   <div><h4>Contact</h4><ul><li><a href="mailto:{EMAIL}">{EMAIL}</a></li><li>Serving {AREA}</li><li><a href="contact.html">Request a quote</a></li></ul></div>
-  <div class="legal"><span>© 2026 Uplift AV. All rights reserved.</span><span>Corporate event AV · Hybrid events · Livestream production · IMAG</span></div>
+  <div class="legal"><span>© 2026 Uplift AV. All rights reserved.</span><span>Event production · Livestreaming · IMAG · Recap video</span></div>
 </div></footer>'''
 
 def cta(h="Let's talk about your event.", p="Tell us what you're planning. We'll send a clear quote."):
@@ -190,12 +192,13 @@ def multiview():
 </div>'''
 
 # ---------------- HOME ----------------
+AUD_CARDS=''.join(f'<a href="{a["file"]}" style="background-image:url(images/{a["img"]})"><h3>{a["name"]}</h3><p>{a["card"]}</p><span class="more arrow">{a["short"]}</span></a>' for a in AUDS)
 home = f'''
 <section class="stage hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/hero-stage.jpg)"></div><div class="wrap">
   <div class="hero-copy">
-    <h1 id="h1" class="eyebrow">Corporate event AV &amp; livestreaming in Myrtle Beach, SC</h1>
+    <h1 id="h1" class="eyebrow">Event production &amp; livestreaming in Myrtle Beach, SC</h1>
     <p class="display">Your moment, <span>on every screen.</span></p>
-    <p class="lede">Livestreaming, multi-camera production, IMAG screens and branded graphics for conferences, kickoffs, town halls and galas.</p>
+    <p class="lede">Livestreaming, multi-camera production, IMAG screens and recap video for conventions, corporate events, festivals and tournaments.</p>
     <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Start with a conversation</a><a class="btn btn-line" href="packages.html">See packages</a></div>
   </div>
   {multiview()}
@@ -204,8 +207,14 @@ home = f'''
 <section aria-labelledby="listen"><div class="wrap statement">
   <span class="eyebrow">We listen first</span>
   <h2 id="listen">You don't need to speak AV.</h2>
-  <p class="big">Most of our clients are founders and event coordinators with a lot on their plate. Your job is the event: your guests, your program, your message. The technical side is ours.</p>
+  <p class="big">Most of our clients are executive directors, founders and event coordinators with a lot on their plate. Your job is the event: your guests, your program, your message. The technical side is ours.</p>
   <p>Tell us what matters. We handle the cameras, cables and connections, and only bring you the decisions that need you.</p>
+</div></section>
+
+<section style="background:var(--paper-2)" aria-labelledby="who"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Who we work with</span><h2 id="who">Built for the events the Grand Strand hosts.</h2>
+  <p class="lede">Conventions, companies, festivals and tournaments. Different crowds, the same standard.</p></div>
+  <div class="feel">{AUD_CARDS}</div>
 </div></section>
 
 <section class="stage" aria-labelledby="exp"><div class="stage-img" style="background-image:url(images/festival.jpg)"></div><div class="wrap statement">
@@ -301,12 +310,12 @@ SVCS = [
   "Content that sells next year's event and thanks this year's sponsors.",
   ['Event photographer and online gallery','2 to 3 minute highlight film','15 to 30 second vertical social clips','Raw footage and individual camera files']),
 ]
-svc_ld = [{"@context":"https://schema.org","@type":"Service","name":t,"serviceType":t,"provider":{"@id":DOMAIN+"/#business"},"areaServed":"Myrtle Beach and the Grand Strand, SC","audience":{"@type":"BusinessAudience","name":"Corporate event planners and marketing teams"},"description":s} for _,_,t,_,_,s,_,_ in SVCS]
+svc_ld = [{"@context":"https://schema.org","@type":"Service","name":t,"serviceType":t,"provider":{"@id":DOMAIN+"/#business"},"areaServed":"Myrtle Beach and the Grand Strand, SC","audience":{"@type":"BusinessAudience","name":"Associations, corporate teams, event producers and tournament organizers"},"description":s} for _,_,t,_,_,s,_,_ in SVCS]
 services = f'''
 <section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/broadcast.jpg)"></div><div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Services</nav>
   <span class="eyebrow">Services</span><h1 id="h1">Everything happens in the background.</h1>
-  <p class="lede">Livestreaming, cameras and crew, IMAG, graphics, internet, audio and recap video for corporate events on the Grand Strand.</p>
+  <p class="lede">Livestreaming, cameras and crew, IMAG, graphics, internet, audio and recap video for conventions, corporate events, festivals and tournaments on the Grand Strand.</p>
   <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Get a quote</a><a class="btn btn-line" href="packages.html">See packages</a></div>
 </div></section>
 <div class="wrap">
@@ -480,7 +489,7 @@ def city_page(c):
 <section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/{c['img']})"></div><div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="areas.html">Areas</a> / {nm}</nav>
   <span class="eyebrow">{c['county']}, {st}</span>
-  <h1 id="h1">Corporate event AV and livestreaming in {nm}, {st}</h1>
+  <h1 id="h1">Event production and livestreaming in {nm}, {st}</h1>
   <p class="lede">{c['intro']}</p>
   <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Get a {nm} quote</a><a class="btn btn-line" href="packages.html">See packages</a></div>
 </div></section>
@@ -509,7 +518,7 @@ def city_page(c):
 {cta(f'Planning an event in {nm}?','Tell us the date, venue and audience. We will recommend a package and send a clear, flat-price quote.')}
 """
     url=DOMAIN+'/'+cfile(c['slug'])
-    ld=[{"@context":"https://schema.org","@type":"Service","name":f"Corporate event AV and livestreaming in {nm}, {st}","serviceType":"Corporate event AV and livestream production","provider":{"@id":DOMAIN+"/#business"},"url":url,
+    ld=[{"@context":"https://schema.org","@type":"Service","name":f"Event production and livestreaming in {nm}, {st}","serviceType":"Event production and livestreaming","provider":{"@id":DOMAIN+"/#business"},"url":url,
          "areaServed":{"@type":"Place","name":f"{nm}, {st}","address":{"@type":"PostalAddress","addressLocality":nm.split(' & ')[0],"addressRegion":st,"addressCountry":"US"}}},
         {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in c['faq']]},
         {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":DOMAIN+"/"},{"@type":"ListItem","position":2,"name":"Areas","item":DOMAIN+"/areas.html"},{"@type":"ListItem","position":3,"name":nm,"item":url}]}]
@@ -520,8 +529,8 @@ def city_page(c):
 areas_body = f"""
 <section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/beams.jpg)"></div><div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Areas</nav>
-  <span class="eyebrow">Service areas</span><h1 id="h1">Corporate event AV across the Grand Strand and Brunswick County coast</h1>
-  <p class="lede">We produce corporate events, hybrid meetings and livestreams from Georgetown, SC to Ocean Isle Beach, NC. Pick your area for local venues, common event types and answers for planners.</p>
+  <span class="eyebrow">Service areas</span><h1 id="h1">Event production across the Grand Strand and Brunswick County coast</h1>
+  <p class="lede">We produce conventions, corporate events, festivals, tournaments and livestreams from Georgetown, SC to Ocean Isle Beach, NC. Pick your area for local venues, common event types and answers for planners.</p>
   <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Get a quote</a></div>
 </div></section>
 <section><div class="wrap" style="display:flex;flex-direction:column;gap:56px">
@@ -531,6 +540,7 @@ areas_body = f"""
 areas_ld=[{"@context":"https://schema.org","@type":"CollectionPage","name":"Uplift AV service areas","url":DOMAIN+"/areas.html","about":{"@id":DOMAIN+"/#business"}}, crumbs('Areas','areas.html')]
 
 # ---------------- SERVICE PAGES ----------------
+AUD_CHIPS=''.join(f'<a href="{a["file"]}">{a["name"]}</a>' for a in AUDS)
 def svc_page(x):
     inc=''.join(f'<li>{i}</li>' for i in x['includes'])
     opt=''.join(f'<li>{i}</li>' for i in x['options'])
@@ -567,6 +577,10 @@ def svc_page(x):
   <div class="section-head"><span class="eyebrow">Related services</span><h2 id="rel">Often booked together</h2></div>
   <div class="bento" style="grid-template-columns:repeat(3,minmax(0,1fr))">{rel}</div>
 </div></section>
+<section style="background:var(--paper-2)" aria-labelledby="wf"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Who it's for</span><h2 id="wf">{x['name']} for every kind of event</h2></div>
+  <div class="chips">{AUD_CHIPS}</div>
+</div></section>
 <section aria-labelledby="sa"><div class="wrap">
   <div class="section-head"><span class="eyebrow">Service area</span><h2 id="sa">{x['name']} across the Grand Strand</h2></div>
   <div class="chips">{chips}<a href="areas.html">All areas →</a></div>
@@ -576,10 +590,72 @@ def svc_page(x):
     url=DOMAIN+'/'+x['file']
     ld=[{"@context":"https://schema.org","@type":"Service","name":x['h1'],"serviceType":x['name'],"description":x['desc'],"provider":{"@id":DOMAIN+"/#business"},"url":url,
          "areaServed":[{"@type":"AdministrativeArea","name":"Horry County, SC"},{"@type":"AdministrativeArea","name":"Georgetown County, SC"},{"@type":"AdministrativeArea","name":"Brunswick County, NC"}],
-         "audience":{"@type":"BusinessAudience","name":"Corporate event planners and marketing teams"}},
+         "audience":{"@type":"BusinessAudience","name":"Associations, corporate teams, event producers and tournament organizers"}},
         {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in x['faq']]},
         {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":DOMAIN+"/"},{"@type":"ListItem","position":2,"name":"Services","item":DOMAIN+"/services.html"},{"@type":"ListItem","position":3,"name":x['name'],"item":url}]}]
     return (x['file'], x['title'], x['desc'], body, ld)
+
+
+def aud_page(a):
+    ev=''.join(f'<li>{i}</li>' for i in a['events'])
+    inc=''.join(f'<li>{i}</li>' for i in a['includes'])
+    faqh=''.join(f'<details{" open" if i==0 else ""}><summary>{q}</summary><div class="a"><p>{t}</p></div></details>' for i,(q,t) in enumerate(a['faq']))
+    rel=''.join(f'<a class="tile" href="{SBY[r]["file"]}"><span class="ic">{ICON[SBY[r]["icon"]]}</span><h3>{SBY[r]["name"]}</h3><p>{SBY[r]["lede"]}</p><span class="more arrow">Learn more </span></a>' for r in a['related'])
+    others=''.join(f'<a href="{o["file"]}">{o["name"]}</a>' for o in AUDS if o['key']!=a['key'])
+    body=f"""
+<section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/{a['img']})"></div><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="who-we-serve.html">Who we serve</a> / {a['name']}</nav>
+  <h1 id="h1" class="eyebrow">{a['h1']}</h1>
+  <p class="display" style="font-size:clamp(36px,5.2vw,64px)">{a['headline']}</p>
+  <p class="lede">{a['lede']}</p>
+  <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Start with a conversation</a><a class="btn btn-line" href="packages.html">See packages</a></div>
+</div></section>
+<section aria-labelledby="why"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">What changes</span><h2 id="why">From the problem to the result</h2></div>
+  <div class="pso"><div><b>The problem</b><p>{a['problem']}</p></div><div><b>What we do</b><p>{a['solution']}</p></div><div><b>What you get</b><p>{a['outcome']}</p></div></div>
+</div></section>
+<section style="background:var(--paper-2)" aria-labelledby="inc"><div class="wrap contact-grid">
+  <div style="display:flex;flex-direction:column;gap:16px"><span class="eyebrow">What we produce</span><h2 id="inc">Events we cover</h2><ul class="checks">{ev}</ul>
+    <h3 style="margin-top:12px">What's included</h3><ul class="checks">{inc}</ul></div>
+  <aside class="side"><div class="card"><span class="eyebrow">Recommended</span><h3>{a['pk'][0]}</h3><p>{a['pk'][1]}</p><a class="arrow" style="font-weight:600" href="packages.html">Compare packages </a></div>
+  <div class="card" data-promo style="background:#F6EEE2"><span class="eyebrow">Launch pricing</span><p><strong>15% off every package</strong> for events booked before January 1, 2027.</p></div></aside>
+</div></section>
+<section aria-labelledby="afaq"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">FAQ</span><h2 id="afaq">Questions we hear</h2></div>
+  <div class="faq">{faqh}</div>
+</div></section>
+<section class="stage" aria-labelledby="rel"><div class="stage-img" style="background-image:url(images/gala.jpg)"></div><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Services</span><h2 id="rel">What goes into it</h2></div>
+  <div class="bento" style="grid-template-columns:repeat(3,minmax(0,1fr))">{rel}</div>
+</div></section>
+<section aria-labelledby="oth"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Also serving</span><h2 id="oth">Other events we produce</h2></div>
+  <div class="chips">{others}<a href="areas.html">Service areas</a></div>
+</div></section>
+{cta()}
+"""
+    url=DOMAIN+'/'+a['file']
+    ld=[{"@context":"https://schema.org","@type":"Service","name":a['h1'],"serviceType":a['name'],"description":a['desc'],"provider":{"@id":DOMAIN+"/#business"},"url":url,
+         "areaServed":[{"@type":"AdministrativeArea","name":"Horry County, SC"},{"@type":"AdministrativeArea","name":"Georgetown County, SC"},{"@type":"AdministrativeArea","name":"Brunswick County, NC"}],
+         "audience":{"@type":"Audience","audienceType":a['name']}},
+        {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":t}} for q,t in a['faq']]},
+        {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":DOMAIN+"/"},{"@type":"ListItem","position":2,"name":"Who we serve","item":DOMAIN+"/who-we-serve.html"},{"@type":"ListItem","position":3,"name":a['name'],"item":url}]}]
+    return (a['file'], a['title'], a['desc'], body, ld)
+
+who_body = f"""
+<section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/hero-stage.jpg)"></div><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Who we serve</nav>
+  <span class="eyebrow">Who we serve</span><h1 id="h1">Event production for the Grand Strand's biggest gatherings</h1>
+  <p class="lede">Association conventions, corporate events, festivals and tournaments. You run the event. We put it on every screen.</p>
+  <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Start with a conversation</a></div>
+</div></section>
+<section aria-labelledby="aud"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Choose your event</span><h2 id="aud">Different crowds. The same standard.</h2></div>
+  <div class="feel">{AUD_CARDS}</div>
+</div></section>
+{cta()}
+"""
+who_ld=[{"@context":"https://schema.org","@type":"CollectionPage","name":"Who Uplift AV serves","url":DOMAIN+"/who-we-serve.html","about":{"@id":DOMAIN+"/#business"},"hasPart":[{"@type":"WebPage","name":a['name'],"url":DOMAIN+"/"+a['file']} for a in AUDS]}, crumbs('Who we serve','who-we-serve.html')]
 
 PAGES = [
  ('index.html','Corporate Event AV & Livestream Production in Myrtle Beach, SC | Uplift AV',
@@ -597,6 +673,8 @@ PAGES.append(('thanks.html','Thanks | Uplift AV','Your quote request was sent.',
 PAGES.append(('areas.html','Event AV Service Areas: Grand Strand & Brunswick County | Uplift AV','Corporate event AV and livestreaming in Myrtle Beach, North Myrtle Beach, Conway, Murrells Inlet, Pawleys Island, Georgetown, Little River, Sunset Beach and Ocean Isle Beach.',areas_body,areas_ld))
 PAGES += [city_page(c) for c in CITIES]
 PAGES += [svc_page(x) for x in SERVICES]
+PAGES.append(('who-we-serve.html','Who We Serve | Uplift AV','Event production for association conventions, corporate events, festivals and tournaments on the Grand Strand.',who_body,who_ld))
+PAGES += [aud_page(a) for a in AUDS]
 out = os.path.join(D,'out'); os.makedirs(out, exist_ok=True)
 for slug,t,d,b,ld in PAGES:
     open(os.path.join(out,slug),'w').write(page(slug,t,d,b,ld))
