@@ -56,7 +56,7 @@ _sp2=_iu2.spec_from_file_location('services_data',os.path.join(D,'services_data.
 SERVICES=_m2.SERVICES; SBY={x['key']:x for x in SERVICES}; SFILE={x['key']:x['file'] for x in SERVICES}
 _sp3=_iu2.spec_from_file_location('audiences',os.path.join(D,'audiences.py')); _m3=_iu2.module_from_spec(_sp3); _sp3.loader.exec_module(_m3)
 AUDS=_m3.AUDIENCES; ABY={a['key']:a for a in AUDS}
-NAV = [('index.html','Home'),('who-we-serve.html','Who we serve'),('services.html','Services'),('packages.html','Packages'),('areas.html','Areas'),('faq.html','FAQ'),('contact.html','Contact')]
+NAV = [('index.html','Home'),('who-we-serve.html','Who we serve'),('services.html','Services'),('packages.html','Packages'),('areas.html','Areas'),('blog.html','Guides'),('faq.html','FAQ'),('contact.html','Contact')]
 
 ORG = {"@context":"https://schema.org","@type":"ProfessionalService","@id":DOMAIN+"/#business","name":"Uplift AV",
  "description":"Event production and livestreaming on the Grand Strand: multi-camera production, livestreams, IMAG screens, presentation and sponsor graphics, and recap video for association conventions, corporate events, festivals and sports tournaments.",
@@ -797,4 +797,5 @@ bd = idx[idx.index('<body>')+6:idx.index('</body>')]
 open(os.path.join(D,'artifact_index.html'),'w').write(h.strip()+'\n'+bd.strip())
 print('done')
 
+exec(open(os.path.join(D,'posts_build.py')).read())
 exec(open(os.path.join(D,'seo_post.py')).read())

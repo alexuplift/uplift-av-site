@@ -55,7 +55,7 @@ for f in glob.glob(os.path.join(OUT,'*.html')):
     t=t.replace('"slogan":"Elevated production. Expanded reach."','"slogan":"Elevated production. Expanded reach.","priceRange":"$$$"',1)
     t=clean(t)
     open(f,'w').write(t)
-sm=os.path.join(OUT,'sitemap.xml'); s=open(sm).read(); s=clean(s); s=re.sub(r'<lastmod>[^<]*</lastmod>',f'<lastmod>{TODAY}</lastmod>',s); open(sm,'w').write(s)
+sm=os.path.join(OUT,'sitemap.xml'); s=open(sm).read(); s=clean(s); s=re.sub(r'(<loc>(?!https://upliftavtech\.com/blog)[^<]*</loc>)<lastmod>[^<]*</lastmod>',lambda m:m.group(1)+f'<lastmod>{TODAY}</lastmod>',s); open(sm,'w').write(s)
 print('seo post ok')
 
 # ---- round 2: webp, logo, WebSite schema, preload ----
