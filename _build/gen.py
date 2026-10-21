@@ -191,6 +191,25 @@ def multiview():
   <div class="mv-meta"><span>REC 01:12:44</span><span><b>●</b> STREAMING · 1080p</span></div>
 </div>'''
 
+
+# ---------------- ADVANTAGES ----------------
+ADV = {
+ 'live': ('Live is our specialty.', "Livestreaming and live production are what we do every day, not an add-on to a rental order or a video shoot."),
+ 'team': ('One team, start to finish.', "Cameras, stream, screens, graphics, photos and recap video from one crew, with one person accountable for all of it."),
+ 'venue': ("We work with your venue's AV.", "The venue handles the room. We extend it to every screen and every viewer, and coordinate with their team well before show day."),
+ 'local': ('A local crew.', "We're based on the Grand Strand. We know the venues, walk the space in person and never have to fly a crew in."),
+ 'price': ('Clear packages.', "Published package prices with crew, live switching and your recording included. Every add-on is on the quote before you book."),
+ 'exp': ('Festival and broadcast background.', "Since 2016 on music festival stages, commercial sets and live TV. Your event gets the same preparation."),
+}
+def adv_block(keys, eyebrow='Why Uplift AV', h='What sets us apart.', bg=True, hid='adv'):
+    items = ''.join(f'<div><b>{ADV[k][0]}</b><p>{ADV[k][1]}</p></div>' for k in keys)
+    style = ' style="background:var(--paper-2)"' if bg else ''
+    return f"""<section{style} aria-labelledby="{hid}"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">{eyebrow}</span><h2 id="{hid}">{h}</h2></div>
+  <div class="needs">{items}</div>
+</div></section>
+"""
+
 # ---------------- HOME ----------------
 AUD_CARDS=''.join(f'<a href="{a["file"]}" style="background-image:url(images/{a["img"]})"><h3>{a["name"]}</h3><p>{a["card"]}</p><span class="more arrow">{a["short"]}</span></a>' for a in AUDS)
 home = f'''
@@ -224,6 +243,7 @@ home = f'''
   <div class="creds"><div><b>Corporate</b><span>Conferences and leadership events</span></div><div><b>Music festivals</b><span>Large crowds, big stages</span></div><div><b>Commercials</b><span>Large commercial productions</span></div><div><b>TV and broadcast</b><span>Live, on schedule</span></div></div>
 </div></section>
 
+{adv_block(['live','team','venue','local','price','exp'], bg=False)}
 <section style="background:var(--paper-2)" aria-labelledby="feel"><div class="wrap">
   <div class="section-head"><span class="eyebrow">What you get</span><h2 id="feel">It's about how it feels.</h2>
   <p class="lede">What your audience experiences, in the room and online.</p></div>
@@ -393,6 +413,11 @@ packages = f'''
 
 # ---------------- FAQ ----------------
 FAQ = [
+ ('why','Why Uplift AV',[
+  ("Why not just use the hotel's AV team?","You can, and we often work alongside them. In-house AV is built for the room: projectors, microphones, sound. We add the produced side: multiple cameras, the livestream, IMAG, graphics and recap video. We coordinate with them early so nothing overlaps."),
+  ('How are you different from an AV rental company?','A rental company delivers equipment. We produce the event: we plan it with you, run the cameras and the stream, and hand you the recording and content afterward. One team is accountable from walkthrough to wrap.'),
+  ('Are you local?',"Yes. We're based on the Grand Strand and work from Georgetown to Ocean Isle Beach. We do venue walkthroughs in person and never fly a crew in."),
+  ('What experience does your crew have?','Since 2016: corporate events, music festivals, commercial productions and live TV broadcasts.')]),
  ('reliability','Reliability',[
   ('Will our livestream drop or lag?','We stream over a dedicated wired line, never venue WiFi, and run a full test before the event. No wired line? Starlink, with cellular backup for multi-day events. No one can guarantee internet, so we also record on site.'),
   ('What if the venue has no wired internet?','We run cable up to 600 feet from the venue switch. With no wired line, our Starlink add-on handles the stream.'),
@@ -515,6 +540,7 @@ def city_page(c):
   <div class="faq">{faqh}</div>
   <div style="margin-top:36px;display:flex;flex-direction:column;gap:12px"><span class="eyebrow">Nearby areas we serve</span><div class="btns">{near}<a class="btn btn-line" href="areas.html">All areas</a></div></div>
 </div></section>
+{adv_block(['local','live','venue','team'], eyebrow=f'Why Uplift AV in {nm}', h='Local crew. Live specialists.', bg=False)}
 {cta(f'Planning an event in {nm}?','Tell us the date, venue and audience. We will recommend a package and send a clear, flat-price quote.')}
 """
     url=DOMAIN+'/'+cfile(c['slug'])
@@ -585,6 +611,7 @@ def svc_page(x):
   <div class="section-head"><span class="eyebrow">Service area</span><h2 id="sa">{x['name']} across the Grand Strand</h2></div>
   <div class="chips">{chips}<a href="areas.html">All areas →</a></div>
 </div></section>
+{adv_block(['live','team','local','price'], h='Why planners choose us.')}
 {cta()}
 """
     url=DOMAIN+'/'+x['file']
@@ -632,6 +659,7 @@ def aud_page(a):
   <div class="section-head"><span class="eyebrow">Also serving</span><h2 id="oth">Other events we produce</h2></div>
   <div class="chips">{others}<a href="areas.html">Service areas</a></div>
 </div></section>
+{adv_block(['live','team','venue','local'], h='Why planners choose us.')}
 {cta()}
 """
     url=DOMAIN+'/'+a['file']
