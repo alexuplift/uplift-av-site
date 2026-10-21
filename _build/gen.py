@@ -335,7 +335,7 @@ svc_ld = [{"@context":"https://schema.org","@type":"Service","name":t,"serviceTy
 services = f'''
 <section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/broadcast.jpg)"></div><div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Services</nav>
-  <span class="eyebrow">Services</span><h1 id="h1">Everything happens in the background.</h1>
+  <span class="eyebrow">Services</span><h1 id="h1">Event AV and livestream services in Myrtle Beach</h1>
   <p class="lede">Livestreaming, cameras and crew, IMAG, graphics, internet, audio and recap video for conventions, corporate events, festivals and tournaments on the Grand Strand.</p>
   <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Get a quote</a><a class="btn btn-line" href="packages.html">See packages</a></div>
 </div></section>
@@ -378,7 +378,7 @@ offer_ld = {"@context":"https://schema.org","@type":"OfferCatalog","name":"Uplif
 packages = f'''
 <section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/gala.jpg)"></div><div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Packages</nav>
-  <span class="eyebrow">Packages and pricing</span><h1 id="h1">Clear pricing. No surprises.</h1>
+  <span class="eyebrow">Packages and pricing</span><h1 id="h1">Event livestream and AV packages, with clear pricing</h1>
   <p class="lede">Crew, gear, live switching and your recording come with every package, so you can compare them fairly.{P(" Book before January 1, 2027 and it's 15% off.")}</p>
 </div></section>
 <section aria-labelledby="pkc"><div class="wrap"><h2 id="pkc" class="sr-only">Compare packages</h2>{pk_cards()}
@@ -443,7 +443,7 @@ faq_ld = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@typ
 faq = f'''
 <section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/town-hall.jpg)"></div><div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / FAQ</nav>
-  <span class="eyebrow">FAQ</span><h1 id="h1">Good questions. Honest answers.</h1>
+  <span class="eyebrow">FAQ</span><h1 id="h1">Event AV and livestreaming questions, answered</h1>
   <p class="lede">Livestream reliability, pricing, venue logistics and deliverables.</p>
 </div></section>
 <section><div class="wrap faq-cols">
@@ -457,7 +457,7 @@ faq = f'''
 contact = f'''
 <section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/beams.jpg)"></div><div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Contact</nav>
-  <span class="eyebrow">Contact</span><h1 id="h1">Tell us about your event.</h1>
+  <span class="eyebrow">Contact</span><h1 id="h1">Request an event AV quote</h1>
   <p class="lede">We reply within one business day, usually sooner.</p>
 </div></section>
 <section><div class="wrap contact-grid">
