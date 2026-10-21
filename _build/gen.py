@@ -104,7 +104,7 @@ def head(slug, title, desc, extra_ld=None):
 def top(slug):
     links = ''.join(f'<li><a href="{h}"{" aria-current=\"page\"" if h==slug else ""}>{t}</a></li>' for h,t in NAV if h!='contact.html')
     return f'''<a class="skip" href="#main">Skip to content</a>
-<div class="strip" data-promo><div class="wrap"><span>Launch pricing: 15% off every package booked before Jan. 1, 2027.</span><a href="packages.html">See packages</a></div></div>
+<aside class="strip" data-promo aria-label="Launch pricing"><div class="wrap"><span>Launch pricing: 15% off every package booked before Jan. 1, 2027.</span><a href="packages.html">See packages</a></div></aside>
 <header class="nav"><div class="wrap">
   <a class="logo" href="index.html" aria-label="Uplift AV home"><img src="images/uplift-av-logo.png" alt="Uplift AV" width="180" height="45"></a>
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
@@ -114,11 +114,11 @@ def top(slug):
 FOOT = f'''<footer><div class="wrap">
   <div><a class="logo" href="index.html" aria-label="Uplift AV home"><img src="images/uplift-av-logo.png" alt="Uplift AV" width="180" height="45"></a>
   <p>Event production and livestreaming for conventions, corporate events, festivals and tournaments across {AREA}.</p></div>
-  <div><h4>Explore</h4><ul>{''.join(f'<li><a href="{h}">{t}</a></li>' for h,t in NAV)}</ul></div>
-  <div><h4>Services</h4><ul>{''.join(f'<li><a href="{x["file"]}">{x["name"]}</a></li>' for x in SERVICES)}</ul></div>
-  <div><h4>Areas</h4><ul>{''.join(f'<li><a href="event-av-{c_}.html">{n_}</a></li>' for c_,n_ in [('myrtle-beach','Myrtle Beach'),('north-myrtle-beach','North Myrtle Beach'),('conway','Conway'),('murrells-inlet','Murrells Inlet'),('pawleys-island-litchfield','Pawleys Island'),('georgetown','Georgetown'),('little-river','Little River'),('sunset-beach-calabash','Sunset Beach'),('ocean-isle-beach','Ocean Isle Beach')])}<li><a href="areas.html">All areas</a></li></ul></div>
-  <div><h4>Contact</h4><ul><li><a href="mailto:{EMAIL}">{EMAIL}</a></li><li>Serving {AREA}</li><li><a href="contact.html">Request a quote</a></li><li><a href="about.html">About Uplift AV</a></li></ul></div>
-  <div class="legal"><span>© 2026 Uplift AV. All rights reserved. <a href="privacy.html" style="color:inherit">Privacy</a> · <a href="terms.html" style="color:inherit">Terms</a></span><span>Event production · Livestreaming · IMAG · Recap video</span></div>
+  <div><h2 class="fh">Explore</h2><ul>{''.join(f'<li><a href="{h}">{t}</a></li>' for h,t in NAV)}</ul></div>
+  <div><h2 class="fh">Services</h2><ul>{''.join(f'<li><a href="{x["file"]}">{x["name"]}</a></li>' for x in SERVICES)}</ul></div>
+  <div><h2 class="fh">Areas</h2><ul>{''.join(f'<li><a href="event-av-{c_}.html">{n_}</a></li>' for c_,n_ in [('myrtle-beach','Myrtle Beach'),('north-myrtle-beach','North Myrtle Beach'),('conway','Conway'),('murrells-inlet','Murrells Inlet'),('pawleys-island-litchfield','Pawleys Island'),('georgetown','Georgetown'),('little-river','Little River'),('sunset-beach-calabash','Sunset Beach'),('ocean-isle-beach','Ocean Isle Beach')])}<li><a href="areas.html">All areas</a></li></ul></div>
+  <div><h2 class="fh">Contact</h2><ul><li><a href="mailto:{EMAIL}">{EMAIL}</a></li><li>Serving {AREA}</li><li><a href="contact.html">Request a quote</a></li><li><a href="about.html">About Uplift AV</a></li></ul></div>
+  <div class="legal"><span>© 2026 Uplift AV. All rights reserved. <a href="privacy.html" style="color:inherit">Privacy</a> · <a href="terms.html" style="color:inherit">Terms</a> · <a href="accessibility.html" style="color:inherit">Accessibility</a></span><span>Event production · Livestreaming · IMAG · Recap video</span></div>
 </div></footer>'''
 
 def cta(h="Let's talk about your event.", p="Tell us what you're planning. We'll send a clear quote."):
@@ -381,7 +381,7 @@ packages = f'''
   <span class="eyebrow">Packages and pricing</span><h1 id="h1">Clear pricing. No surprises.</h1>
   <p class="lede">Crew, gear, live switching and your recording come with every package, so you can compare them fairly.{P(" Book before January 1, 2027 and it's 15% off.")}</p>
 </div></section>
-<section aria-label="Package cards"><div class="wrap">{pk_cards()}
+<section aria-labelledby="pkc"><div class="wrap"><h2 id="pkc" class="sr-only">Compare packages</h2>{pk_cards()}
   <p style="margin-top:18px;color:var(--muted);font-size:15px">{P("Launch prices apply to events booked before January 1, 2027. ")}Prices shown are per event day. Multi-day and multi-room events are quoted as Custom.</p>
 </div></section>
 <section style="background:var(--paper-2);padding-top:clamp(56px,7vw,96px)" aria-labelledby="cmp"><div class="wrap">
@@ -741,7 +741,7 @@ def legal_page(slug, h1, lede, sections, img='beams.jpg'):
   <span class="eyebrow">Legal</span><h1 id="h1">{h1}</h1>
   <p class="lede">{lede}</p>
 </div></section>
-<section aria-label="{h1}"><div class="wrap" style="max-width:760px">
+<section aria-label="{h1} details"><div class="wrap" style="max-width:760px">
   <p style="color:var(--muted);font-size:15px">Last updated {_m4.LEGAL_UPDATED}</p>
   {secs}
 </div></section>
@@ -750,6 +750,7 @@ def legal_page(slug, h1, lede, sections, img='beams.jpg'):
     return body, ld
 privacy_body, privacy_ld = legal_page('privacy.html','Privacy Policy','How Uplift AV collects, uses and protects the information you share with us.',_m4.PRIVACY)
 terms_body, terms_ld = legal_page('terms.html','Terms of Use','The terms that apply when you use upliftavtech.com.',_m4.TERMS)
+access_body, access_ld = legal_page('accessibility.html','Accessibility Statement','Our commitment to a website everyone can use, and how to reach us if something is hard to use.',_m4.ACCESS)
 
 PAGES = [
  ('index.html','Corporate Event AV & Livestream Production in Myrtle Beach, SC | Uplift AV',
@@ -763,7 +764,7 @@ PAGES = [
  ('contact.html','Get a Corporate Event AV Quote | Contact Uplift AV',
   'Request a quote for corporate event AV and livestream production in Myrtle Beach and the Grand Strand. Email info@upliftavtech.com.', contact, [contact_ld, crumbs('Contact','contact.html')]),
 ]
-PAGES.append(('thanks.html','Thanks | Uplift AV','Your quote request was sent.',f'''<section class="stage page-hero"><div class="stage-img" style="background-image:url(images/beams.jpg)"></div><div class="wrap"><span class="eyebrow">Request sent</span><h1 id="h1">Thanks. We got your request.</h1><p class="lede">We will reply by email, usually within one business day. If it is urgent, email {EMAIL}.</p><div class="btns"><a class="btn btn-gold" href="index.html">Back to home</a><a class="btn btn-line" href="packages.html">See packages</a></div></div></section>''',[]))
+PAGES.append(('thanks.html','Thanks | Uplift AV','Your quote request was sent.',f'''<section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/beams.jpg)"></div><div class="wrap"><span class="eyebrow">Request sent</span><h1 id="h1">Thanks. We got your request.</h1><p class="lede">We will reply by email, usually within one business day. If it is urgent, email {EMAIL}.</p><div class="btns"><a class="btn btn-gold" href="index.html">Back to home</a><a class="btn btn-line" href="packages.html">See packages</a></div></div></section>''',[]))
 PAGES.append(('areas.html','Event AV Service Areas: Grand Strand & Brunswick County | Uplift AV','Corporate event AV and livestreaming in Myrtle Beach, North Myrtle Beach, Conway, Murrells Inlet, Pawleys Island, Georgetown, Little River, Sunset Beach and Ocean Isle Beach.',areas_body,areas_ld))
 PAGES += [city_page(c) for c in CITIES]
 PAGES += [svc_page(x) for x in SERVICES]
@@ -771,6 +772,7 @@ PAGES.append(('who-we-serve.html','Who We Serve | Uplift AV','Event production f
 PAGES += [aud_page(a) for a in AUDS]
 PAGES.append(('privacy.html','Privacy Policy | Uplift AV Event Production, Myrtle Beach','How Uplift AV collects, uses and protects information from quote requests and website visits. We do not sell your data or use advertising cookies.',privacy_body,privacy_ld))
 PAGES.append(('terms.html','Terms of Use | Uplift AV Event Production, Myrtle Beach','Terms for using upliftavtech.com, including how quotes, package pricing, the launch offer and event agreements work with Uplift AV.',terms_body,terms_ld))
+PAGES.append(('accessibility.html','Accessibility Statement | Uplift AV, Myrtle Beach SC','Uplift AV designs upliftavtech.com to meet WCAG 2.2 AA. How we test, known limitations, and how to get help if something on the site is hard to use.',access_body,access_ld))
 PAGES.append(('about.html','About Uplift AV | Event Production Crew, Myrtle Beach SC','Uplift AV is a Grand Strand event production and livestreaming crew with music festival, commercial and live broadcast experience since 2016.',about_body,about_ld))
 out = os.path.join(D,'out'); os.makedirs(out, exist_ok=True)
 for slug,t,d,b,ld in PAGES:

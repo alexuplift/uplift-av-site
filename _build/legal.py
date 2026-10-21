@@ -27,3 +27,11 @@ TERMS = [
  ('Governing law', "These terms are governed by the laws of the State of South Carolina. Any dispute about the site will be handled in the state or federal courts serving Horry County, South Carolina."),
  ('Changes and contact', "We may update these terms. The date at the top shows when they last changed. Questions? Email <a href=\"mailto:info@upliftavtech.com\">info@upliftavtech.com</a>."),
 ]
+
+ACCESS = [
+ ('Our commitment', "Uplift AV wants everyone to be able to use upliftavtech.com, including people who use screen readers, keyboard navigation, magnification or other assistive technology."),
+ ('Standard we follow', "We design and test this site against the Web Content Accessibility Guidelines (WCAG) 2.2, Level AA. Our checks include automated testing on every page at desktop and mobile sizes, keyboard navigation, readable color contrast, text alternatives for meaningful images, labeled form fields and clear page structure."),
+ ('Known limitations', "Some decorative background images have no text description because they carry no information. If anything on the site is hard to use, we want to hear about it."),
+ ('Event accessibility', "Tell us about any accessibility needs for your event when you request a quote, and we will plan around them, such as larger on-screen text and clear sightlines to the screens."),
+ ('Feedback and help', "If you have trouble using this site or need information in another format, email <a href=\"mailto:info@upliftavtech.com\">info@upliftavtech.com</a>. We will respond within two business days and work with you to provide the information you need."),
+]

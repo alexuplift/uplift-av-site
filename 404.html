@@ -123,7 +123,7 @@ section{padding-block:clamp(56px,7vw,96px)}
 .mv.pgm{grid-column:1/-1;border-color:var(--live)}
 .mv.pvw{border-color:#2FA36B}
 .mv span{position:absolute;left:8px;bottom:6px;font:600 11px/1 var(--display);letter-spacing:.1em;color:#fff;background:rgba(0,0,0,.6);padding:4px 6px;border-radius:4px}
-.mv .tally{left:auto;right:8px;top:8px;bottom:auto;background:var(--live)}
+.mv .tally{left:auto;right:8px;top:8px;bottom:auto;background:#C42127}
 .mv .lt{position:absolute;left:8%;bottom:14%;right:30%;background:rgba(15,16,20,.85);border-left:4px solid var(--gold);padding:6px 10px;border-radius:2px}
 .mv .lt b{display:block;font:600 13px/1.2 var(--display);color:#fff}
 .mv .lt i{display:block;font:600 10px/1.3 var(--body);font-style:normal;color:var(--gold-light)}
@@ -253,7 +253,7 @@ footer .wrap{padding-block:56px 32px;display:grid;grid-template-columns:minmax(0
 .chips a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:4px;background:#fff;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700}
 .chips a:hover{border-color:var(--gold)}
 @media (max-width:760px){footer .wrap{grid-template-columns:minmax(0,1fr)}}
-footer h4{font:600 13px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--stage-ink);margin-bottom:14px}
+footer h4,footer .fh{font:600 13px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--stage-ink);margin-bottom:14px}
 footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
 footer a{color:var(--stage-ink);text-decoration:none;display:inline-flex;min-height:36px;align-items:center}
 footer a:hover{color:var(--gold-light)}
@@ -365,7 +365,7 @@ a,button{-webkit-tap-highlight-color:rgba(184,145,95,.18)}
 :root{
   --ink:#1d1d1f; --ink-2:#424245; --muted:#6e6e73; --paper:#fff; --paper-2:#f5f5f7; --line:#d2d2d7;
   --stage:#000; --stage-2:#111113; --stage-ink:#f5f5f7; --stage-muted:#a1a1a6;
-  --gold:#C9A26E; --gold-ink:#8A6A3E; --gold-light:#DDBB88;
+  --gold:#C9A26E; --gold-ink:#7D5F36; --gold-light:#DDBB88;
   --display:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
   --body:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
   --max:1120px; --r:18px;
@@ -478,7 +478,7 @@ section{padding-block:clamp(72px,10vw,140px)}
 
 /* footer */
 footer{background:var(--paper-2);color:var(--muted);font-size:13px}
-footer h4{color:var(--ink);letter-spacing:.12em;font-size:12px}
+footer h4,footer .fh{color:var(--ink);letter-spacing:.12em;font-size:12px}
 footer a{color:var(--ink-2)}
 footer a:hover{color:var(--gold-ink)}
 footer .legal{border-top-color:var(--line)}
@@ -505,27 +505,32 @@ footer .legal{border-top-color:var(--line)}
 .hero h1.eyebrow{font-size:12px;line-height:1.4;letter-spacing:.22em;font-weight:600;margin:0}
 .display{font-size:clamp(40px,6.6vw,88px);font-weight:600;letter-spacing:-.035em;line-height:1.06;color:var(--stage-ink);margin:0;text-wrap:balance}
 .display span{color:var(--gold-light)}
+
+/* a11y */
+footer .fh{font:600 13px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--stage-ink);margin-bottom:14px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 html:not(.promo-over) [data-after]{display:none!important}html.promo-over [data-promo]{display:none!important}</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="strip" data-promo><div class="wrap"><span>Launch pricing: 15% off every package booked before Jan. 1, 2027.</span><a href="/packages">See packages</a></div></div>
+<aside class="strip" data-promo aria-label="Launch pricing"><div class="wrap"><span>Launch pricing: 15% off every package booked before Jan. 1, 2027.</span><a href="/packages">See packages</a></div></aside>
 <header class="nav"><div class="wrap">
   <a class="logo" href="/" aria-label="Uplift AV home"><img src="images/uplift-av-logo.webp" alt="Uplift AV" width="180" height="45"></a>
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
   <nav aria-label="Main"><ul id="menu"><li><a href="/">Home</a></li><li><a href="/who-we-serve">Who we serve</a></li><li><a href="/services">Services</a></li><li><a href="/packages">Packages</a></li><li><a href="/areas">Areas</a></li><li><a href="/faq">FAQ</a></li><li><a class="btn btn-gold" href="/contact">Get a quote</a></li></ul></nav>
 </div></header>
 <main id="main">
-<section class="stage page-hero"><div class="stage-img" style="background-image:url(images/beams.webp)"></div><div class="wrap"><span class="eyebrow">404</span><h1 id="h1">That page isn't here.</h1><p class="lede">It may have moved. Start from the home page, or see who we serve and what we produce.</p><div class="btns"><a class="btn btn-gold" href="/">Back to home</a><a class="btn btn-line" href="/who-we-serve">Who we serve</a></div></div></section>
+<section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/beams.webp)"></div><div class="wrap"><span class="eyebrow">404</span><h1 id="h1">That page isn't here.</h1><p class="lede">It may have moved. Start from the home page, or see who we serve and what we produce.</p><div class="btns"><a class="btn btn-gold" href="/">Back to home</a><a class="btn btn-line" href="/who-we-serve">Who we serve</a></div></div></section>
 </main>
 <footer><div class="wrap">
   <div><a class="logo" href="/" aria-label="Uplift AV home"><img src="images/uplift-av-logo.webp" alt="Uplift AV" width="180" height="45"></a>
   <p>Event production and livestreaming for conventions, corporate events, festivals and tournaments across Myrtle Beach & the Grand Strand, SC.</p></div>
-  <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/who-we-serve">Who we serve</a></li><li><a href="/services">Services</a></li><li><a href="/packages">Packages</a></li><li><a href="/areas">Areas</a></li><li><a href="/faq">FAQ</a></li><li><a href="/contact">Contact</a></li></ul></div>
-  <div><h4>Services</h4><ul><li><a href="/corporate-livestream-production">Livestream production</a></li><li><a href="/multi-camera-event-production">Multi-camera production</a></li><li><a href="/event-presentation-graphics">Presentation and brand graphics</a></li><li><a href="/imag-event-screens">IMAG and event screens</a></li><li><a href="/event-internet-starlink">Event internet and Starlink</a></li><li><a href="/event-audio">Event audio</a></li><li><a href="/event-photo-video">Photo and recap content</a></li></ul></div>
-  <div><h4>Areas</h4><ul><li><a href="/event-av-myrtle-beach">Myrtle Beach</a></li><li><a href="/event-av-north-myrtle-beach">North Myrtle Beach</a></li><li><a href="/event-av-conway">Conway</a></li><li><a href="/event-av-murrells-inlet">Murrells Inlet</a></li><li><a href="/event-av-pawleys-island-litchfield">Pawleys Island</a></li><li><a href="/event-av-georgetown">Georgetown</a></li><li><a href="/event-av-little-river">Little River</a></li><li><a href="/event-av-sunset-beach-calabash">Sunset Beach</a></li><li><a href="/event-av-ocean-isle-beach">Ocean Isle Beach</a></li><li><a href="/areas">All areas</a></li></ul></div>
-  <div><h4>Contact</h4><ul><li><a href="mailto:info@upliftavtech.com">info@upliftavtech.com</a></li><li>Serving Myrtle Beach & the Grand Strand, SC</li><li><a href="/contact">Request a quote</a></li><li><a href="/about">About Uplift AV</a></li></ul></div>
-  <div class="legal"><span>© 2026 Uplift AV. All rights reserved. <a href="/privacy" style="color:inherit">Privacy</a> · <a href="/terms" style="color:inherit">Terms</a></span><span>Event production · Livestreaming · IMAG · Recap video</span></div>
+  <div><h2 class="fh">Explore</h2><ul><li><a href="/">Home</a></li><li><a href="/who-we-serve">Who we serve</a></li><li><a href="/services">Services</a></li><li><a href="/packages">Packages</a></li><li><a href="/areas">Areas</a></li><li><a href="/faq">FAQ</a></li><li><a href="/contact">Contact</a></li></ul></div>
+  <div><h2 class="fh">Services</h2><ul><li><a href="/corporate-livestream-production">Livestream production</a></li><li><a href="/multi-camera-event-production">Multi-camera production</a></li><li><a href="/event-presentation-graphics">Presentation and brand graphics</a></li><li><a href="/imag-event-screens">IMAG and event screens</a></li><li><a href="/event-internet-starlink">Event internet and Starlink</a></li><li><a href="/event-audio">Event audio</a></li><li><a href="/event-photo-video">Photo and recap content</a></li></ul></div>
+  <div><h2 class="fh">Areas</h2><ul><li><a href="/event-av-myrtle-beach">Myrtle Beach</a></li><li><a href="/event-av-north-myrtle-beach">North Myrtle Beach</a></li><li><a href="/event-av-conway">Conway</a></li><li><a href="/event-av-murrells-inlet">Murrells Inlet</a></li><li><a href="/event-av-pawleys-island-litchfield">Pawleys Island</a></li><li><a href="/event-av-georgetown">Georgetown</a></li><li><a href="/event-av-little-river">Little River</a></li><li><a href="/event-av-sunset-beach-calabash">Sunset Beach</a></li><li><a href="/event-av-ocean-isle-beach">Ocean Isle Beach</a></li><li><a href="/areas">All areas</a></li></ul></div>
+  <div><h2 class="fh">Contact</h2><ul><li><a href="mailto:info@upliftavtech.com">info@upliftavtech.com</a></li><li>Serving Myrtle Beach & the Grand Strand, SC</li><li><a href="/contact">Request a quote</a></li><li><a href="/about">About Uplift AV</a></li></ul></div>
+  <div class="legal"><span>© 2026 Uplift AV. All rights reserved. <a href="/privacy" style="color:inherit">Privacy</a> · <a href="/terms" style="color:inherit">Terms</a> · <a href="/accessibility" style="color:inherit">Accessibility</a></span><span>Event production · Livestreaming · IMAG · Recap video</span></div>
 </div></footer>
 <script>
 (function(){
