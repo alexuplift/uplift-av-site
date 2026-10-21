@@ -507,6 +507,7 @@ _sp=_iu.spec_from_file_location('cities',os.path.join(D,'cities.py')); _m=_iu.mo
 CITIES=_m.CITIES; COUNTIES=_m.COUNTIES
 CBY={c['slug']:c for c in CITIES}
 def cfile(slug): return f'event-av-{slug}.html'
+_sp5=_iu2.spec_from_file_location('city_plan',os.path.join(D,'city_plan.py')); _m5=_iu2.module_from_spec(_sp5); _sp5.loader.exec_module(_m5)
 def city_page(c):
     nm, st = c['name'], c['st']
     venues=''.join(f'<li>{v}</li>' for v in c['venues'])
@@ -534,16 +535,16 @@ def city_page(c):
   <aside class="side"><div class="card"><span class="eyebrow">Every package includes</span><ul><li>Technical director and camera crew</li><li>Live switching with your slides</li><li>Stream to your platform, Zoom, LinkedIn or YouTube</li><li>Program recording delivered</li></ul></div>
   <div class="card" style="background:#F6EEE2" data-promo><span class="eyebrow">Launch pricing</span><p><strong>15% off every package</strong> for events booked before January 1, 2027. Packages from $2,890.</p><a class="arrow" style="font-weight:600" href="packages.html">Compare packages </a></div><div class="card" style="background:#F6EEE2" data-after><span class="eyebrow">Flat pricing</span><p>Packages from <strong>$3,400</strong>, with crew, switching and recording included.</p><a class="arrow" style="font-weight:600" href="packages.html">Compare packages </a></div></aside>
 </div></section>
-<section aria-labelledby="pk"><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Packages</span><h2 id="pk">{nm} event livestream packages</h2></div>
-  {pk_cards()}
+<section aria-labelledby="plan"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">{_m5.PLAN[c['slug']][0]}</span><h2 id="plan">Planning an event in {nm}</h2></div>
+  <div class="needs">{''.join(f'<div><b>{h}</b><p>{p}</p></div>' for h,p in _m5.PLAN[c['slug']][1])}</div>
+  <p style="max-width:980px;margin:32px auto 0;color:var(--ink-2)">Packages for {nm} events start at {P('$2,890 during launch pricing','$3,400')}, with crew, live switching and your recording included. <a class="arrow" style="font-weight:600" href="packages.html">Compare packages</a></p>
 </div></section>
 <section style="background:var(--paper-2)" aria-labelledby="lfaq"><div class="wrap">
   <div class="section-head"><span class="eyebrow">{nm} FAQ</span><h2 id="lfaq">Questions from {nm} event planners</h2></div>
   <div class="faq">{faqh}</div>
   <div style="margin-top:36px;display:flex;flex-direction:column;gap:12px"><span class="eyebrow">Nearby areas we serve</span><div class="btns">{near}<a class="btn btn-line" href="areas.html">All areas</a></div></div>
 </div></section>
-{adv_block(['local','live','venue','team'], eyebrow=f'Why Uplift AV in {nm}', h='Local crew. Live specialists.', bg=False)}
 {cta(f'Planning an event in {nm}?','Tell us the date, venue and audience. We will recommend a package and send a clear, flat-price quote.')}
 """
     url=DOMAIN+'/'+cfile(c['slug'])
@@ -562,7 +563,8 @@ areas_body = f"""
   <p class="lede">We produce conventions, corporate events, festivals, tournaments and livestreams from Georgetown, SC to Ocean Isle Beach, NC. Pick your area for local venues, common event types and answers for planners.</p>
   <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Get a quote</a></div>
 </div></section>
-<section><div class="wrap" style="display:flex;flex-direction:column;gap:56px">
+<section aria-labelledby="cov"><div class="wrap" style="display:flex;flex-direction:column;gap:56px">
+<div class="section-head" style="margin-bottom:0"><span class="eyebrow">Coverage</span><h2 id="cov">From Georgetown to Ocean Isle Beach</h2><p class="lede">We are based in Myrtle Beach and cover Horry and Georgetown Counties in South Carolina and the Brunswick County coast in North Carolina, roughly an hour in either direction. Each area page lists local venues, the events we produce there and planning notes for that part of the coast.</p></div>
 """ + ''.join(f"""<div><div class="section-head" style="margin-bottom:24px"><h2 style="font-size:32px">{cn}</h2></div><div class="qa-grid">""" + ''.join(f"""<article class="qa"><h3>{CBY[s_]['name']}</h3><p>{CBY[s_]['events']}</p><a class="arrow" href="{cfile(s_)}">{CBY[s_]['name']} event AV </a></article>""" for s_ in sl) + "</div></div>" for cn,sl in COUNTIES) + """
 </div></section>
 """ + cta()
@@ -614,7 +616,6 @@ def svc_page(x):
   <div class="section-head"><span class="eyebrow">Service area</span><h2 id="sa">{x['name']} across the Grand Strand</h2></div>
   <div class="chips">{chips}<a href="areas.html">All areas →</a></div>
 </div></section>
-{adv_block(['live','team','local','price'], h='Why planners choose us.')}
 {cta()}
 """
     url=DOMAIN+'/'+x['file']
@@ -662,7 +663,6 @@ def aud_page(a):
   <div class="section-head"><span class="eyebrow">Also serving</span><h2 id="oth">Other events we produce</h2></div>
   <div class="chips">{others}<a href="areas.html">Service areas</a></div>
 </div></section>
-{adv_block(['live','team','venue','local'], h='Why planners choose us.')}
 {cta()}
 """
     url=DOMAIN+'/'+a['file']
@@ -681,8 +681,18 @@ who_body = f"""
   <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Start with a conversation</a></div>
 </div></section>
 <section aria-labelledby="aud"><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Choose your event</span><h2 id="aud">Different crowds. The same standard.</h2></div>
+  <div class="section-head"><span class="eyebrow">Choose your event</span><h2 id="aud">Different crowds. The same standard.</h2>
+  <p class="lede">Every event we produce starts the same way: a conversation about your audience, a walkthrough of the venue and a written plan. What changes is the setup.</p></div>
   <div class="feel">{AUD_CARDS}</div>
+</div></section>
+<section aria-labelledby="diff"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">What changes by event</span><h2 id="diff">The right setup for each crowd.</h2></div>
+  <div class="needs">
+    <div><b>Associations and conventions</b><p>General sessions, keynotes and awards, streamed to members who can't travel and recorded for on-demand use and continuing education.</p></div>
+    <div><b>Corporate events</b><p>Kickoffs, town halls and awards nights, with leadership on camera, slides on every screen and a stream for remote teams and other sites.</p></div>
+    <div><b>Festivals and live events</b><p>IMAG screens so the back of the crowd can see the stage, sponsor loops between sets and recap content that sells next year.</p></div>
+    <div><b>Sports and competitions</b><p>Championship games, finals and ceremonies with live score graphics and a stream families can find easily.</p></div>
+  </div>
 </div></section>
 <section style="background:var(--paper-2)" aria-labelledby="one"><div class="wrap statement">
   <span class="eyebrow">One team</span>

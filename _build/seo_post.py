@@ -3,7 +3,7 @@ import re, glob, os, datetime, html, json
 OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)),'out'); D='https://upliftavtech.com'
 TODAY=datetime.date.today().isoformat()
 T={
- 'index':("Event AV & Livestream Production in Myrtle Beach | Uplift AV","Local event production and livestreaming on the Grand Strand: multi-camera, IMAG and recap video for conventions, corporate events, festivals and tournaments."),
+ 'index':("Event AV & Production Company in Myrtle Beach | Uplift AV","Local event production and livestreaming on the Grand Strand: multi-camera, IMAG and recap video for conventions, corporate events, festivals and tournaments."),
  'services':("Event AV & Production Services, Myrtle Beach | Uplift AV","Livestreaming, multi-camera crews, IMAG, presentation graphics, event internet, audio and recap video for conventions, corporate events and festivals."),
  'packages':("Event AV & Livestream Packages and Pricing | Uplift AV","Compare Essential, Professional and Executive event livestream packages. Flat pricing with crew, live switching and your recording included. Grand Strand, SC."),
  'event-av-myrtle-beach':("Audio Visual & Livestreaming in Myrtle Beach, SC | Uplift AV",None),
@@ -27,7 +27,7 @@ def city_meta(slug,h1):
     if len(title)>60: title=f"Event Production & Livestreaming {short} | Uplift AV"
     if len(title)>60: title=f"Event AV & Livestreaming {short} {st2} | Uplift AV"
     desc=f"Event production, livestreaming and IMAG in {name}, {st} for conventions, corporate events, festivals and tournaments. Flat package pricing."
-    if len(desc)>158: desc=f"Event production, livestreaming and IMAG in {name}, {st}. Crew, graphics and recording included."
+    if len(desc)>158: desc=f"Event production, livestreaming and IMAG in {name}, {st}. Local crew, graphics and your recording included. Flat package pricing."
     return title,desc
 def clean(t):
     t=re.sub(r'(https://upliftavtech\.com/)index\.html',r'\1',t)
@@ -80,5 +80,6 @@ _t=_t.replace('<span class="eyebrow">Request sent</span>','<span class="eyebrow"
 _t=re.sub(r'<h1 id="h1">.*?</h1>','<h1 id="h1">That page isn\'t here.</h1>',_t,1)
 _t=re.sub(r'(<h1 id="h1">.*?</h1><p class="lede">).*?(</p>)',r'\1It may have moved. Start from the home page, or see who we serve and what we produce.\2',_t,1,flags=re.S)
 _t=_t.replace('href="/packages">See packages</a></div></div></section>','href="/who-we-serve">Who we serve</a></div></div></section>')
+_t=re.sub(r'<link rel="canonical"[^>]*>\n?','',_t)
 open(os.path.join(OUT,'404.html'),'w').write(_t)
 print('404 ok')
