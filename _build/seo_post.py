@@ -51,7 +51,7 @@ for f in glob.glob(os.path.join(OUT,'*.html')):
         for k in ('name="description"','property="og:description"','name="twitter:description"'):
             t=re.sub(r'('+k+r' content=")[^"]*',r'\g<1>'+ed.replace('\\','\\\\'),t,1)
     if slug=='index':
-        t=t.replace('<link rel="preconnect" href="https://fonts.googleapis.com">','<link rel="preload" as="image" href="images/hero-stage.jpg" fetchpriority="high">\n<link rel="preconnect" href="https://fonts.googleapis.com">',1)
+        t=t.replace('<link rel="preload" href="fonts/inter-latin-wght-normal.woff2"','<link rel="preload" as="image" href="images/hero-stage.jpg" fetchpriority="high">\n<link rel="preload" href="fonts/inter-latin-wght-normal.woff2"',1)
     t=t.replace('"slogan":"Elevated production. Expanded reach."','"slogan":"Elevated production. Expanded reach.","priceRange":"$$$"',1)
     t=clean(t)
     open(f,'w').write(t)
@@ -70,7 +70,7 @@ for f in glob.glob(os.path.join(OUT,'*.html')):
     # preload page hero image on inner pages
     m=re.search(r'class="stage page-hero"[^>]*><div class="stage-img" style="background-image:url\(([^)]+)\)',t)
     if m and 'rel="preload" as="image"' not in t:
-        t=t.replace('<link rel="preconnect" href="https://fonts.googleapis.com">','<link rel="preload" as="image" href="'+('/'+m.group(1).lstrip('/'))+'" fetchpriority="high">\n<link rel="preconnect" href="https://fonts.googleapis.com">',1)
+        t=t.replace('<link rel="preload" href="fonts/inter-latin-wght-normal.woff2"','<link rel="preload" as="image" href="'+('/'+m.group(1).lstrip('/'))+'" fetchpriority="high">\n<link rel="preload" href="fonts/inter-latin-wght-normal.woff2"',1)
     open(f,'w').write(t)
 print('seo round2 ok')
 # ---- 404 page (noindex) ----

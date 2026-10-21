@@ -13,8 +13,8 @@ CSS = open(os.path.join(D, 'site.css')).read()
 DOMAIN = 'https://upliftavtech.com'
 EMAIL = 'info@upliftavtech.com'
 AREA = 'Myrtle Beach & the Grand Strand, SC'
-FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">')
+FONTS = ('<link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>\n'
+         "<style>@font-face{font-family:'Inter';font-style:normal;font-display:swap;font-weight:100 900;src:url(fonts/inter-latin-wght-normal.woff2) format('woff2-variations'),url(fonts/inter-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style>")
 JS = """<script>
 (function(){
   var b=document.querySelector('.menu-btn'), m=document.getElementById('menu');
