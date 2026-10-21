@@ -117,7 +117,7 @@ FOOT = f'''<footer><div class="wrap">
   <div><h4>Explore</h4><ul>{''.join(f'<li><a href="{h}">{t}</a></li>' for h,t in NAV)}</ul></div>
   <div><h4>Services</h4><ul>{''.join(f'<li><a href="{x["file"]}">{x["name"]}</a></li>' for x in SERVICES)}</ul></div>
   <div><h4>Areas</h4><ul>{''.join(f'<li><a href="event-av-{c_}.html">{n_}</a></li>' for c_,n_ in [('myrtle-beach','Myrtle Beach'),('north-myrtle-beach','North Myrtle Beach'),('conway','Conway'),('murrells-inlet','Murrells Inlet'),('pawleys-island-litchfield','Pawleys Island'),('georgetown','Georgetown'),('little-river','Little River'),('sunset-beach-calabash','Sunset Beach'),('ocean-isle-beach','Ocean Isle Beach')])}<li><a href="areas.html">All areas</a></li></ul></div>
-  <div><h4>Contact</h4><ul><li><a href="mailto:{EMAIL}">{EMAIL}</a></li><li>Serving {AREA}</li><li><a href="contact.html">Request a quote</a></li></ul></div>
+  <div><h4>Contact</h4><ul><li><a href="mailto:{EMAIL}">{EMAIL}</a></li><li>Serving {AREA}</li><li><a href="contact.html">Request a quote</a></li><li><a href="about.html">About Uplift AV</a></li></ul></div>
   <div class="legal"><span>© 2026 Uplift AV. All rights reserved.</span><span>Event production · Livestreaming · IMAG · Recap video</span></div>
 </div></footer>'''
 
@@ -240,7 +240,7 @@ home = f'''
 <section class="stage" aria-labelledby="exp"><div class="stage-img" style="background-image:url(images/festival.jpg)"></div><div class="wrap statement">
   <span class="eyebrow">Experience</span>
   <h2 id="exp">Built on festival stages and broadcast sets.</h2>
-  <p>Since 2016: corporate events, music festivals, commercial productions and live TV broadcasts. Your event gets the same preparation.</p>
+  <p>Since 2016: corporate events, music festivals, commercial productions and live TV broadcasts. Your event gets the same preparation. <a href="about.html" class="arrow" style="color:inherit;font-weight:600">About us</a></p>
   <div class="creds"><div><b>Corporate</b><span>Conferences and leadership events</span></div><div><b>Music festivals</b><span>Large crowds, big stages</span></div><div><b>Commercials</b><span>Large commercial productions</span></div><div><b>TV and broadcast</b><span>Live, on schedule</span></div></div>
 </div></section>
 
@@ -691,6 +691,43 @@ who_body = f"""
 """
 who_ld=[{"@context":"https://schema.org","@type":"CollectionPage","name":"Who Uplift AV serves","url":DOMAIN+"/who-we-serve.html","about":{"@id":DOMAIN+"/#business"},"hasPart":[{"@type":"WebPage","name":a['name'],"url":DOMAIN+"/"+a['file']} for a in AUDS]}, crumbs('Who we serve','who-we-serve.html')]
 
+
+about_body = f"""
+<section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/broadcast.jpg)"></div><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / About</nav>
+  <span class="eyebrow">About Uplift AV</span><h1 id="h1">A Grand Strand production crew built on festival stages and broadcast sets</h1>
+  <p class="lede">Uplift AV produces livestreams, multi-camera shows, IMAG and recap video for conventions, corporate events, festivals and tournaments from Georgetown to Ocean Isle Beach.</p>
+  <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Start with a conversation</a><a class="btn btn-line" href="who-we-serve.html">Who we serve</a></div>
+</div></section>
+<section aria-labelledby="story"><div class="wrap statement">
+  <span class="eyebrow">Our background</span>
+  <h2 id="story">Live work, since 2016.</h2>
+  <p class="big">Our crew has worked music festivals, large commercial productions, documentary and reality TV shoots, live broadcasts and corporate events since 2016.</p>
+  <p>Uplift AV brings that discipline to the events the Grand Strand hosts every year: association conventions, company meetings, festivals and tournaments. You run the event. We run the tech.</p>
+</div></section>
+<section style="background:var(--paper-2)" aria-labelledby="creds"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Credentials</span><h2 id="creds">What stands behind the work.</h2></div>
+  <div class="needs">
+    <div><b>Festival and broadcast experience</b><p>Large outdoor music festivals, commercial productions and live TV. Crowds, schedules and live cues are normal days for us.</p></div>
+    <div><b>FAA Part 107 certified drone pilot</b><p>Aerial coverage is flown by a licensed commercial pilot, with airspace and venue permissions handled before the event.</p></div>
+    <div><b>Local to the Grand Strand</b><p>We know the convention center, the resort ballrooms and the outdoor venues, and we walk your space in person.</p></div>
+    <div><b>Clear, written scope</b><p>Every event gets a written quote, a venue requirements list and a run of show before anyone loads in.</p></div>
+  </div>
+</div></section>
+<section aria-labelledby="std"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Our standard</span><h2 id="std">How every event is run.</h2></div>
+  <ol class="steps">
+    <li><h3>Walk the venue</h3><p>We confirm internet, power, sound feed and screen connections with the venue team.</p></li>
+    <li><h3>Write the plan</h3><p>Camera positions, graphics, stream destinations and a run of show you approve.</p></li>
+    <li><h3>Test early</h3><p>We arrive early, test the stream and every input, and record on site the whole time.</p></li>
+    <li><h3>Deliver after</h3><p>The full recording, plus photos and recap video when you add them.</p></li>
+  </ol>
+</div></section>
+{adv_block(['live','team','venue','local'], h='Why planners choose us.')}
+{cta()}
+"""
+about_ld=[{"@context":"https://schema.org","@type":"AboutPage","name":"About Uplift AV","url":DOMAIN+"/about.html","about":{"@id":DOMAIN+"/#business"}}, crumbs('About','about.html')]
+
 PAGES = [
  ('index.html','Corporate Event AV & Livestream Production in Myrtle Beach, SC | Uplift AV',
   'Corporate event AV and hybrid livestreams for conferences, sales kickoffs, product launches, town halls and galas in Myrtle Beach and the Grand Strand. Crew, branded graphics and IMAG included. Flat package pricing.', home, []),
@@ -709,6 +746,7 @@ PAGES += [city_page(c) for c in CITIES]
 PAGES += [svc_page(x) for x in SERVICES]
 PAGES.append(('who-we-serve.html','Who We Serve | Uplift AV','Event production for association conventions, corporate events, festivals and tournaments on the Grand Strand.',who_body,who_ld))
 PAGES += [aud_page(a) for a in AUDS]
+PAGES.append(('about.html','About Uplift AV | Event Production Crew, Myrtle Beach SC','Uplift AV is a Grand Strand event production and livestreaming crew with music festival, commercial and live broadcast experience since 2016.',about_body,about_ld))
 out = os.path.join(D,'out'); os.makedirs(out, exist_ok=True)
 for slug,t,d,b,ld in PAGES:
     open(os.path.join(out,slug),'w').write(page(slug,t,d,b,ld))
