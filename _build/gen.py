@@ -118,7 +118,7 @@ FOOT = f'''<footer><div class="wrap">
   <div><h4>Services</h4><ul>{''.join(f'<li><a href="{x["file"]}">{x["name"]}</a></li>' for x in SERVICES)}</ul></div>
   <div><h4>Areas</h4><ul>{''.join(f'<li><a href="event-av-{c_}.html">{n_}</a></li>' for c_,n_ in [('myrtle-beach','Myrtle Beach'),('north-myrtle-beach','North Myrtle Beach'),('conway','Conway'),('murrells-inlet','Murrells Inlet'),('pawleys-island-litchfield','Pawleys Island'),('georgetown','Georgetown'),('little-river','Little River'),('sunset-beach-calabash','Sunset Beach'),('ocean-isle-beach','Ocean Isle Beach')])}<li><a href="areas.html">All areas</a></li></ul></div>
   <div><h4>Contact</h4><ul><li><a href="mailto:{EMAIL}">{EMAIL}</a></li><li>Serving {AREA}</li><li><a href="contact.html">Request a quote</a></li><li><a href="about.html">About Uplift AV</a></li></ul></div>
-  <div class="legal"><span>© 2026 Uplift AV. All rights reserved.</span><span>Event production · Livestreaming · IMAG · Recap video</span></div>
+  <div class="legal"><span>© 2026 Uplift AV. All rights reserved. <a href="privacy.html" style="color:inherit">Privacy</a> · <a href="terms.html" style="color:inherit">Terms</a></span><span>Event production · Livestreaming · IMAG · Recap video</span></div>
 </div></footer>'''
 
 def cta(h="Let's talk about your event.", p="Tell us what you're planning. We'll send a clear quote."):
@@ -488,6 +488,7 @@ contact = f'''
     <label class="fld" style="grid-column:1/-1">What would make this event a success for you?<textarea id="f-goal" name="success_looks_like" rows="3" placeholder="Who needs to feel included, what you want people to walk away with, anything you\'re worried about"></textarea></label>
     <label class="fld">Anything else we should know?<textarea id="f-msg" name="message" rows="5" placeholder="Agenda, number of speakers or presentations, special requests"></textarea></label>
     <div class="factions"><button class="btn btn-gold" type="submit" id="f-submit">Send request</button><p class="fstatus" id="f-status" role="status" aria-live="polite"></p></div>
+    <p style="color:var(--muted);font-size:14px;margin-top:12px">We use your details only to respond to your request. See our <a href="privacy.html">Privacy Policy</a>.</p>
   </form>
   <aside class="side" aria-label="Contact details">
     <div class="card"><span class="eyebrow">Email</span><a class="email" href="mailto:{EMAIL}">{EMAIL}</a><button class="copy" type="button" data-copy="{EMAIL}">Copy email</button></div>
@@ -730,6 +731,26 @@ about_body = f"""
 """
 about_ld=[{"@context":"https://schema.org","@type":"AboutPage","name":"About Uplift AV","url":DOMAIN+"/about.html","about":{"@id":DOMAIN+"/#business"}}, crumbs('About','about.html')]
 
+
+_sp4=_iu2.spec_from_file_location('legal',os.path.join(D,'legal.py')); _m4=_iu2.module_from_spec(_sp4); _sp4.loader.exec_module(_m4)
+def legal_page(slug, h1, lede, sections, img='beams.jpg'):
+    secs=''.join(f'<section style="padding:0;border:0"><h2 style="font-size:24px;margin:40px 0 12px">{t}</h2><p style="color:var(--ink-2);font-size:17px;line-height:1.65">{b}</p></section>' for t,b in sections)
+    body=f"""
+<section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/{img})"></div><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / {h1}</nav>
+  <span class="eyebrow">Legal</span><h1 id="h1">{h1}</h1>
+  <p class="lede">{lede}</p>
+</div></section>
+<section aria-label="{h1}"><div class="wrap" style="max-width:760px">
+  <p style="color:var(--muted);font-size:15px">Last updated {_m4.LEGAL_UPDATED}</p>
+  {secs}
+</div></section>
+"""
+    ld=[{"@context":"https://schema.org","@type":"WebPage","name":h1+" | Uplift AV","url":DOMAIN+"/"+slug,"publisher":{"@id":DOMAIN+"/#business"},"dateModified":"2026-10-21"}, crumbs(h1,slug)]
+    return body, ld
+privacy_body, privacy_ld = legal_page('privacy.html','Privacy Policy','How Uplift AV collects, uses and protects the information you share with us.',_m4.PRIVACY)
+terms_body, terms_ld = legal_page('terms.html','Terms of Use','The terms that apply when you use upliftavtech.com.',_m4.TERMS)
+
 PAGES = [
  ('index.html','Corporate Event AV & Livestream Production in Myrtle Beach, SC | Uplift AV',
   'Corporate event AV and hybrid livestreams for conferences, sales kickoffs, product launches, town halls and galas in Myrtle Beach and the Grand Strand. Crew, branded graphics and IMAG included. Flat package pricing.', home, []),
@@ -748,6 +769,8 @@ PAGES += [city_page(c) for c in CITIES]
 PAGES += [svc_page(x) for x in SERVICES]
 PAGES.append(('who-we-serve.html','Who We Serve | Uplift AV','Event production for association conventions, corporate events, festivals and tournaments on the Grand Strand.',who_body,who_ld))
 PAGES += [aud_page(a) for a in AUDS]
+PAGES.append(('privacy.html','Privacy Policy | Uplift AV Event Production, Myrtle Beach','How Uplift AV collects, uses and protects information from quote requests and website visits. We do not sell your data or use advertising cookies.',privacy_body,privacy_ld))
+PAGES.append(('terms.html','Terms of Use | Uplift AV Event Production, Myrtle Beach','Terms for using upliftavtech.com, including how quotes, package pricing, the launch offer and event agreements work with Uplift AV.',terms_body,terms_ld))
 PAGES.append(('about.html','About Uplift AV | Event Production Crew, Myrtle Beach SC','Uplift AV is a Grand Strand event production and livestreaming crew with music festival, commercial and live broadcast experience since 2016.',about_body,about_ld))
 out = os.path.join(D,'out'); os.makedirs(out, exist_ok=True)
 for slug,t,d,b,ld in PAGES:
