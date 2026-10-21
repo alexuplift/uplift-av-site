@@ -3,7 +3,7 @@ import re, glob, os, datetime, html, json
 OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)),'out'); D='https://upliftavtech.com'
 TODAY=datetime.date.today().isoformat()
 T={
- 'index':("Event Production & Livestreaming Myrtle Beach | Uplift AV","Local event production and livestreaming crew on the Grand Strand: multi-camera, IMAG and recap video for conventions, corporate events, festivals and tournaments."),
+ 'index':("Event Production & Livestreaming Myrtle Beach | Uplift AV","Local event production and livestreaming on the Grand Strand: multi-camera, IMAG and recap video for conventions, corporate events, festivals and tournaments."),
  'services':("Event Production Services in Myrtle Beach | Uplift AV","Livestreaming, multi-camera crews, IMAG, presentation graphics, event internet, audio and recap video for conventions, corporate events and festivals."),
  'packages':("Livestream & Event AV Packages and Pricing | Uplift AV","Compare Essential, Professional and Executive event livestream packages. Flat pricing with crew, live switching and your recording included. Grand Strand, SC."),
  'event-av-myrtle-beach':("Event AV & Livestreaming in Myrtle Beach, SC | Uplift AV",None),
