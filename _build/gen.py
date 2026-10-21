@@ -493,6 +493,7 @@ contact = f'''
     <div class="card"><span class="eyebrow">Email</span><a class="email" href="mailto:{EMAIL}">{EMAIL}</a><button class="copy" type="button" data-copy="{EMAIL}">Copy email</button></div>
     <div class="card"><span class="eyebrow">Include in your request</span><ul><li>Event date and start and end times</li><li>Venue name and room</li><li>Expected in-person and online audience</li><li>Run of show or agenda, if you have one</li><li>Where you want to stream</li><li>Number of speakers or presentations</li><li>Any add-ons, like IMAG, photography or Starlink</li></ul></div>
     <div class="card"><span class="eyebrow">Service area</span><p>{AREA}, plus the Brunswick County coast in North Carolina. Farther out? Ask.</p></div>
+    <div class="card"><span class="eyebrow">New to us?</span><p>Festival, commercial and broadcast experience since 2016, now focused on Grand Strand events.</p><a class="arrow" style="font-weight:600" href="about.html">About Uplift AV </a></div>
     <div class="card" style="background:#F6EEE2" data-promo><span class="eyebrow">Launch pricing</span><p><strong>15% off every package</strong> for events booked before January 1, 2027.</p><a class="arrow" style="font-weight:600" href="packages.html">See packages </a></div>
   </aside>
 </div></section>
@@ -686,6 +687,7 @@ who_body = f"""
   <span class="eyebrow">One team</span>
   <h2 id="one">The same crew, whatever the crowd.</h2>
   <p>A convention general session, a company town hall, a festival stage and a championship game need different setups. They need the same preparation: a venue walkthrough, a written plan, a tested stream and a crew that has done it before. Since 2016 we have produced events from Georgetown to Ocean Isle Beach, and every event gets that standard.</p>
+  <p><a class="arrow" style="font-weight:600" href="about.html">About Uplift AV</a></p>
 </div></section>
 {cta()}
 """
