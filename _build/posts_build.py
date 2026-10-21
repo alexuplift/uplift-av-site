@@ -138,7 +138,6 @@ def blog_index():
   <div class="section-head"><span class="eyebrow">Latest</span><h2 id="latest">Guides for planners</h2>
   <p class="lede">New guides publish weekly.{' Next up: ' + up[0]['h1'] if up else ''}</p></div>
   <div class="bento" style="grid-template-columns:repeat(2,minmax(0,1fr))">{cards}</div>
-  <p style="margin-top:28px;text-align:center"><a href="/rss.xml">Subscribe with RSS</a></p>
 </div></section>
 {cta()}
 """
