@@ -75,6 +75,7 @@ def head(slug, title, desc, extra_ld=None):
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="canonical" href="{url}">
 <meta name="robots" content="index,follow">
+<meta name="msvalidate.01" content="06DCFF5C3F466CA631304BAAF1B96E93">
 <meta name="theme-color" content="#161B24">
 <meta name="apple-mobile-web-app-title" content="Uplift AV">
 <meta name="format-detection" content="telephone=no">
