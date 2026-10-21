@@ -62,8 +62,8 @@ ORG = {"@context":"https://schema.org","@type":"ProfessionalService","@id":DOMAI
  "description":"Event production and livestreaming on the Grand Strand: multi-camera production, livestreams, IMAG screens, presentation and sponsor graphics, and recap video for association conventions, corporate events, festivals and sports tournaments.",
  "url":DOMAIN+"/","email":EMAIL,"logo":DOMAIN+"/images/uplift-av-logo.png","image":DOMAIN+"/images/og-image.jpg",
  "areaServed":[{"@type":"City","name":"Myrtle Beach, SC"},{"@type":"City","name":"North Myrtle Beach, SC"},{"@type":"City","name":"Conway, SC"},{"@type":"City","name":"Surfside Beach, SC"},{"@type":"Place","name":"Murrells Inlet, SC"},{"@type":"Place","name":"Pawleys Island, SC"},{"@type":"City","name":"Georgetown, SC"},{"@type":"City","name":"Little River, SC"},{"@type":"Town","name":"Sunset Beach, NC"},{"@type":"Town","name":"Calabash, NC"},{"@type":"Town","name":"Ocean Isle Beach, NC"},{"@type":"AdministrativeArea","name":"Horry County, SC"},{"@type":"AdministrativeArea","name":"Georgetown County, SC"},{"@type":"AdministrativeArea","name":"Brunswick County, NC"}],
- "slogan":"Elevated production. Expanded reach.",
- "knowsAbout":["Event production","Conference and convention AV","Corporate event production","Festival and concert IMAG","Tournament livestreaming","Hybrid event production","Multi-camera video production","Town hall streaming"]}
+ "slogan":"Elevated production. Expanded reach.","priceRange":"$$$","contactPoint":{"@type":"ContactPoint","contactType":"sales","email":EMAIL,"areaServed":"US-SC","availableLanguage":"English"},
+ "knowsAbout":["Event audio visual (AV)","Event production","Conference and convention AV","Corporate event production","Festival and concert IMAG","Tournament livestreaming","Hybrid event production","Multi-camera video production","Town hall streaming"]}
 
 def head(slug, title, desc, extra_ld=None):
     url = DOMAIN + '/' + ('' if slug=='index.html' else slug)
@@ -215,7 +215,7 @@ AUD_CARDS=''.join(f'<a href="{a["file"]}" style="background-image:url(images/{a[
 home = f'''
 <section class="stage hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/hero-stage.jpg)"></div><div class="wrap">
   <div class="hero-copy">
-    <h1 id="h1" class="eyebrow">Event production &amp; livestreaming in Myrtle Beach, SC</h1>
+    <h1 id="h1" class="eyebrow">Event AV, production &amp; livestreaming in Myrtle Beach, SC</h1>
     <p class="display">Your moment, <span>on every screen.</span></p>
     <p class="lede">Livestreaming, multi-camera production, IMAG screens and recap video for conventions, corporate events, festivals and tournaments.</p>
     <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Start with a conversation</a><a class="btn btn-line" href="packages.html">See packages</a></div>
