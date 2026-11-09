@@ -3,8 +3,8 @@ import re, glob, os, datetime, html, json
 OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)),'out'); D='https://upliftavtech.com'
 TODAY=datetime.date.today().isoformat()
 T={
- 'index':("Event AV & Production Company in Myrtle Beach | Uplift AV","Local event production and livestreaming on the Grand Strand: multi-camera, IMAG and recap video for conventions, corporate events, festivals and tournaments."),
- 'services':("Event AV & Production Services, Myrtle Beach | Uplift AV","Livestreaming, multi-camera crews, IMAG, presentation graphics, event internet, audio and recap video for conventions, corporate events and festivals."),
+ 'index':("Event AV & Production Company in Myrtle Beach | Uplift AV","Local event production and livestreaming on the Grand Strand: multi-camera, IMAG and graphics for conventions, corporate events, festivals and tournaments."),
+ 'services':("Event AV & Production Services, Myrtle Beach | Uplift AV","Livestreaming, multi-camera crews, IMAG, presentation graphics, event internet, audio and recordings for conventions, corporate events and festivals."),
  'packages':("Event AV & Livestream Packages and Pricing | Uplift AV","Compare Essential, Professional and Executive event livestream packages. Flat pricing with crew, live switching and your recording included. Grand Strand, SC."),
  'event-av-myrtle-beach':("Audio Visual & Livestreaming in Myrtle Beach, SC | Uplift AV",None),
  'who-we-serve':("Who We Serve: Event Production Myrtle Beach | Uplift AV","Event production and livestreaming for association conventions, corporate events, festivals and tournaments across Myrtle Beach and the Grand Strand."),
@@ -17,7 +17,7 @@ T={
  'imag-event-screens':("IMAG & LED Screens for Events in Myrtle Beach | Uplift AV",None),
  'event-internet-starlink':("Event Internet & Starlink for Livestreams | Uplift AV",None),
  'event-audio':("Event Audio for Livestreams & Live Events | Uplift AV",None),
- 'event-photo-video':("Event Videography & Photography, Myrtle Beach | Uplift AV",None),
+ 'event-recording':("Event Recording & Camera Files, Myrtle Beach | Uplift AV",None),
 }
 SHORT={'surfside-beach-garden-city':('Surfside Beach','SC'),'pawleys-island-litchfield':('Pawleys Island','SC'),'sunset-beach-calabash':('Sunset Beach','NC')}
 def city_meta(slug,h1):

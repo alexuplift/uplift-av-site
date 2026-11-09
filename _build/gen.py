@@ -3,7 +3,7 @@ PROMO_END='2027-01-01T00:00:00-05:00'
 FORM_KEY='83d41300-159b-4f70-9da2-161ecf736240'
 AREA_LIST=['Myrtle Beach','North Myrtle Beach','Conway','Little River','Surfside Beach / Garden City','Murrells Inlet','Pawleys Island / Litchfield','Georgetown','Sunset Beach / Calabash','Ocean Isle Beach']
 AREA_OPTS=''.join(f'<option>{a}</option>' for a in AREA_LIST)
-ADDON_CHECKS=''.join(f'<label><input type="checkbox" name="addons" value="{a}"> {a}</label>' for a in ['IMAG to venue screens','Extra cameras','Hosted viewing page','Multiple platforms','Sound package','Starlink internet','Photography','Recap film','Social reels'])
+ADDON_CHECKS=''.join(f'<label><input type="checkbox" name="addons" value="{a}"> {a}</label>' for a in ['IMAG to venue screens','Extra cameras','Hosted viewing page','Multiple platforms','Sound package','Starlink internet','Session-by-session files','Individual camera files'])
 def P(promo, after=''):
     return f'<span data-promo>{promo}</span>' + (f'<span data-after>{after}</span>' if after else '')
 def ld_text(t):
@@ -59,7 +59,7 @@ AUDS=_m3.AUDIENCES; ABY={a['key']:a for a in AUDS}
 NAV = [('index.html','Home'),('who-we-serve.html','Who we serve'),('services.html','Services'),('packages.html','Packages'),('areas.html','Areas'),('blog.html','Guides'),('faq.html','FAQ'),('contact.html','Contact')]
 
 ORG = {"@context":"https://schema.org","@type":"ProfessionalService","@id":DOMAIN+"/#business","name":"Uplift AV",
- "description":"Event production and livestreaming on the Grand Strand: multi-camera production, livestreams, IMAG screens, presentation and sponsor graphics, and recap video for association conventions, corporate events, festivals and sports tournaments.",
+ "description":"Event production and livestreaming on the Grand Strand: multi-camera production, livestreams, IMAG screens, presentation and sponsor graphics, and event recordings for association conventions, corporate events, festivals and sports tournaments.",
  "url":DOMAIN+"/","email":EMAIL,"logo":DOMAIN+"/images/uplift-av-logo.png","image":DOMAIN+"/images/og-image.jpg",
  "areaServed":[{"@type":"City","name":"Myrtle Beach, SC"},{"@type":"City","name":"North Myrtle Beach, SC"},{"@type":"City","name":"Conway, SC"},{"@type":"City","name":"Surfside Beach, SC"},{"@type":"Place","name":"Murrells Inlet, SC"},{"@type":"Place","name":"Pawleys Island, SC"},{"@type":"City","name":"Georgetown, SC"},{"@type":"City","name":"Little River, SC"},{"@type":"Town","name":"Sunset Beach, NC"},{"@type":"Town","name":"Calabash, NC"},{"@type":"Town","name":"Ocean Isle Beach, NC"},{"@type":"AdministrativeArea","name":"Horry County, SC"},{"@type":"AdministrativeArea","name":"Georgetown County, SC"},{"@type":"AdministrativeArea","name":"Brunswick County, NC"}],
  "slogan":"Elevated production. Expanded reach.","priceRange":"$$$","contactPoint":{"@type":"ContactPoint","contactType":"sales","email":EMAIL,"areaServed":"US-SC","availableLanguage":"English"},
@@ -118,7 +118,7 @@ FOOT = f'''<footer><div class="wrap">
   <div><h2 class="fh">Services</h2><ul>{''.join(f'<li><a href="{x["file"]}">{x["name"]}</a></li>' for x in SERVICES)}</ul></div>
   <div><h2 class="fh">Areas</h2><ul>{''.join(f'<li><a href="event-av-{c_}.html">{n_}</a></li>' for c_,n_ in [('myrtle-beach','Myrtle Beach'),('north-myrtle-beach','North Myrtle Beach'),('conway','Conway'),('murrells-inlet','Murrells Inlet'),('pawleys-island-litchfield','Pawleys Island'),('georgetown','Georgetown'),('little-river','Little River'),('sunset-beach-calabash','Sunset Beach'),('ocean-isle-beach','Ocean Isle Beach')])}<li><a href="areas.html">All areas</a></li></ul></div>
   <div><h2 class="fh">Contact</h2><ul><li><a href="mailto:{EMAIL}">{EMAIL}</a></li><li>Serving {AREA}</li><li><a href="contact.html">Request a quote</a></li><li><a href="about.html">About Uplift AV</a></li></ul></div>
-  <div class="legal"><span>© 2026 Uplift AV. All rights reserved. <a href="privacy.html" style="color:inherit">Privacy</a> · <a href="terms.html" style="color:inherit">Terms</a> · <a href="accessibility.html" style="color:inherit">Accessibility</a></span><span>Event production · Livestreaming · IMAG · Recap video</span></div>
+  <div class="legal"><span>© 2026 Uplift AV. All rights reserved. <a href="privacy.html" style="color:inherit">Privacy</a> · <a href="terms.html" style="color:inherit">Terms</a> · <a href="accessibility.html" style="color:inherit">Accessibility</a></span><span>Event production · Livestreaming · IMAG · Graphics</span></div>
 </div></footer>'''
 
 def cta(h="Let's talk about your event.", p="Tell us what you're planning. We'll send a clear quote."):
@@ -156,7 +156,7 @@ QA = [
  ("Can you work with the hotel's AV team?", "Yes, and we'd rather talk to them early. Internet, power, screens. If they charge for any of it, you'll know before you book, not after.", 'faq.html#logistics'),
  ('Can people watching online take part?', "They can. We set up a private viewing page for up to 1,000 people, and their questions get read on stage like everyone else's.", 'corporate-livestream-production.html'),
  ('What does it cost?', "Each package is one flat price. Add-ons are listed on your quote up front. We don't like surprise invoices either. Packages start at "+P('$2,890 during launch pricing','$3,400')+'.', 'packages.html'),
- ('What do we get afterward?', 'The full recording, as a download. If marketing wants photos, a highlight video or social clips, we can add those.', 'faq.html#deliverables'),
+ ('What do we get afterward?', 'The full recording, as a download, usually within a week. If marketing wants photos or a highlight film, we hand our camera files to your marketing team, your agency or a creative studio we can recommend.', 'faq.html#deliverables'),
 ]
 
 def qa_grid():
@@ -196,7 +196,7 @@ def multiview():
 # ---------------- ADVANTAGES ----------------
 ADV = {
  'live': ('Live is our specialty.', "Livestreaming and live production are what we do every day, not an add-on to a rental order or a video shoot."),
- 'team': ('One team, start to finish.', "Cameras, stream, screens, graphics, photos and recap video from one crew, with one person accountable for all of it."),
+ 'team': ('One team, start to finish.', "Cameras, stream, screens, graphics and the recording from one crew, with one person accountable for all of it."),
  'venue': ("We work with your venue's AV.", "The venue handles the room. We extend it to every screen and every viewer, and coordinate with their team well before show day."),
  'local': ('A local crew.', "We're based on the Grand Strand. We know the venues, walk the space in person and never have to fly a crew in."),
  'price': ('Clear packages.', "Published package prices with crew, live switching and your recording included. Every add-on is on the quote before you book."),
@@ -218,7 +218,7 @@ home = f'''
   <div class="hero-copy">
     <h1 id="h1" class="eyebrow">Event AV, production &amp; livestreaming in Myrtle Beach, SC</h1>
     <p class="display">Your moment, <span>on every screen.</span></p>
-    <p class="lede">Livestreaming, multi-camera production, IMAG screens and recap video for conventions, corporate events, festivals and tournaments.</p>
+    <p class="lede">Livestreaming, multi-camera production, IMAG screens and presentation graphics for conventions, corporate events, festivals and tournaments.</p>
     <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Start with a conversation</a><a class="btn btn-line" href="packages.html">See packages</a></div>
   </div>
   {multiview()}
@@ -262,7 +262,7 @@ home = f'''
     <li><h3>Tell us about it</h3><p>A short call about the event, the audience and your goals.</p></li>
     <li><h3>We plan it</h3><p>We coordinate with the venue, plan cameras and build your graphics. You approve.</p></li>
     <li><h3>You host</h3><p>We arrive early and run everything. One crew, start to finish.</p></li>
-    <li><h3>You keep it</h3><p>The full recording, plus photos and a highlight film if you want them.</p></li>
+    <li><h3>You keep it</h3><p>The full recording, plus session files and separate camera angles if you want them.</p></li>
   </ol>
 </div></section>
 
@@ -325,18 +325,18 @@ SVCS = [
   "We take a feed straight from the house sound system. If the venue doesn't have one, our sound package brings an engineer, a mixer and mics.",
   "People hear every word, in the room or at home.",
   ['Feed from the venue sound system','Audio engineer and digital soundboard (add-on)','Mic and connection kit','Projection and lighting: ask us']),
- ('content','photo','Photo and recap video','Something to use after it\'s over.',
-  "The event ends and marketing has nothing to post. Next year's promotion starts from zero.",
-  "Add a photographer with an edited online gallery. Add a videographer for a 2 to 3 minute highlight film. Short social clips too, if you want them.",
-  "Content that sells next year's event and thanks this year's sponsors.",
-  ['Event photographer and online gallery','2 to 3 minute highlight film','15 to 30 second vertical social clips','Raw footage and individual camera files']),
+ ('content','photo','Recordings and camera files','Keep all of it, cleanly.',
+  "The event ends and the footage is stuck on someone's drives, or it was never recorded clean in the first place.",
+  "We record the program on site from start to finish, whatever the internet does. Add session-by-session files or every camera angle separately.",
+  "On-demand sessions for members and remote staff, a record for the minutes, and clean files your marketing team can work from.",
+  ['Program recording in every package','Recorded on site, separate from the stream','Session-by-session files (add-on)','Individual camera files for your editor']),
 ]
 svc_ld = [{"@context":"https://schema.org","@type":"Service","name":t,"serviceType":t,"provider":{"@id":DOMAIN+"/#business"},"areaServed":"Myrtle Beach and the Grand Strand, SC","audience":{"@type":"BusinessAudience","name":"Associations, corporate teams, event producers and tournament organizers"},"description":s} for _,_,t,_,_,s,_,_ in SVCS]
 services = f'''
 <section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/broadcast.jpg)"></div><div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Services</nav>
   <span class="eyebrow">Services</span><h1 id="h1">Event AV and livestream services in Myrtle Beach</h1>
-  <p class="lede">Livestreaming, cameras and crew, IMAG, graphics, internet, audio and recap video for conventions, corporate events, festivals and tournaments on the Grand Strand.</p>
+  <p class="lede">Livestreaming, cameras and crew, IMAG, graphics, internet, audio and recordings for conventions, corporate events, festivals and tournaments on the Grand Strand.</p>
   <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Get a quote</a><a class="btn btn-line" href="packages.html">See packages</a></div>
 </div></section>
 <div class="wrap">
@@ -363,7 +363,7 @@ ROWS = [
 ADDONS = [('Extra cameras','Another angle with an operator. Wide shot, the audience, a second stage.'),('Robotic PTZ camera','An extra angle with preset shots. No extra person.'),
  ('IMAG','Close-ups and slides on the venue projectors and TVs.'),('Sound package','Audio engineer, digital soundboard, connection kit.'),
  ('Private viewing page','We set it up and pay for it. Up to 500 or 1,000 viewers.'),('Starlink','For venues with no wired line. Cellular backup available.'),
- ('Photography','A photographer and an edited online gallery.'),('Recap video and social clips','A 2 to 3 minute highlight film. Short vertical clips.'),
+ ('Session files','Each session trimmed and labeled as its own file.'),('Camera files','Every camera angle, recorded separately, for your editor.'),
  ('More presentation prep','More speakers, more decks, all formatted for your screens.'),('Projection and lighting','Projectors, screens, LED color lighting. Ask us.')]
 
 MOB_PRICE=[(P('<s>$3,400</s> <b>$2,890</b>','<b>$3,400</b>')),(P('<s>$5,800</s> <b>from $4,930</b>','<b>from $5,800</b>')),(P('<s>$9,300</s> <b>from $7,905</b>','<b>from $9,300</b>')),('<b>Inquire</b>')]
@@ -415,8 +415,8 @@ packages = f'''
 # ---------------- FAQ ----------------
 FAQ = [
  ('why','Why Uplift AV',[
-  ("Why not just use the hotel's AV team?","You can, and we often work alongside them. In-house AV is built for the room: projectors, microphones, sound. We add the produced side: multiple cameras, the livestream, IMAG, graphics and recap video. We coordinate with them early so nothing overlaps."),
-  ('How are you different from an AV rental company?','A rental company delivers equipment. We produce the event: we plan it with you, run the cameras and the stream, and hand you the recording and content afterward. One team is accountable from walkthrough to wrap.'),
+  ("Why not just use the hotel's AV team?","You can, and we often work alongside them. In-house AV is built for the room: projectors, microphones, sound. We add the produced side: multiple cameras, the livestream, IMAG, graphics and the recording. We coordinate with them early so nothing overlaps."),
+  ('How are you different from an AV rental company?','A rental company delivers equipment. We produce the event: we plan it with you, run the cameras and the stream, and hand you the recording afterward. One team is accountable from walkthrough to wrap.'),
   ('Are you local?',"Yes. We're based on the Grand Strand and work from Georgetown to Ocean Isle Beach. We do venue walkthroughs in person and never fly a crew in."),
   ('What experience does your crew have?','Since 2016: corporate events, music festivals, commercial productions and live TV broadcasts.')]),
  ('reliability','Reliability',[
@@ -436,7 +436,7 @@ FAQ = [
   ('Can you put the speaker on the screens in the room?','Yes. That\'s IMAG. Our camera shots and slides go to the venue projectors and TVs while we stream.')]),
  ('deliverables','Deliverables',[
   ('Do we get a recording of the event?','Yes, every package. It comes as a download. Executive also includes the separate camera files, in case you want to edit later.'),
-  ('Can you shoot photos and a highlight video?','Yes. Add a photographer with an edited online gallery. Add a videographer for a 2 to 3 minute highlight film, plus short social clips if you want them.'),
+  ('Do you shoot photos or highlight videos?','No. We stick to the live production and the recording. If you want photos, a highlight film or social clips, we hand our camera files to your marketing team, your agency or a creative studio we can recommend, and coordinate with them on site.'),
   ('Where do you work?','We\'re on the Grand Strand. Hotels, resorts and convention venues from Georgetown to Ocean Isle Beach. Farther than that? Ask.')]),
 ]
 faq_ld = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":ld_text(a)}} for _,_,items in FAQ for q,a in items]}
@@ -690,7 +690,7 @@ who_body = f"""
   <div class="needs">
     <div><b>Associations and conventions</b><p>General sessions, keynotes and awards, streamed to members who can't travel and recorded for on-demand use and continuing education.</p></div>
     <div><b>Corporate events</b><p>Kickoffs, town halls and awards nights, with leadership on camera, slides on every screen and a stream for remote teams and other sites.</p></div>
-    <div><b>Festivals and live events</b><p>IMAG screens so the back of the crowd can see the stage, sponsor loops between sets and recap content that sells next year.</p></div>
+    <div><b>Festivals and live events</b><p>IMAG screens so the back of the crowd can see the stage, sponsor loops between sets and a livestream for fans who couldn\'t make it.</p></div>
     <div><b>Sports and competitions</b><p>Championship games, finals and ceremonies with live score graphics and a stream families can find easily.</p></div>
   </div>
 </div></section>
@@ -709,7 +709,7 @@ about_body = f"""
 <section class="stage page-hero" aria-labelledby="h1"><div class="stage-img" style="background-image:url(images/broadcast.jpg)"></div><div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / About</nav>
   <span class="eyebrow">About Uplift AV</span><h1 id="h1">A Grand Strand production crew built on festival stages and broadcast sets</h1>
-  <p class="lede">Uplift AV produces livestreams, multi-camera shows, IMAG and recap video for conventions, corporate events, festivals and tournaments from Georgetown to Ocean Isle Beach.</p>
+  <p class="lede">Uplift AV produces livestreams, multi-camera shows, IMAG and presentation graphics for conventions, corporate events, festivals and tournaments from Georgetown to Ocean Isle Beach.</p>
   <div class="btns"><a class="btn btn-gold arrow" href="contact.html">Start with a conversation</a><a class="btn btn-line" href="who-we-serve.html">Who we serve</a></div>
 </div></section>
 <section aria-labelledby="story"><div class="wrap statement">
@@ -733,7 +733,7 @@ about_body = f"""
     <li><h3>Walk the venue</h3><p>We confirm internet, power, sound feed and screen connections with the venue team.</p></li>
     <li><h3>Write the plan</h3><p>Camera positions, graphics, stream destinations and a run of show you approve.</p></li>
     <li><h3>Test early</h3><p>We arrive early, test the stream and every input, and record on site the whole time.</p></li>
-    <li><h3>Deliver after</h3><p>The full recording, plus photos and recap video when you add them.</p></li>
+    <li><h3>Deliver after</h3><p>The full recording, plus session files and camera angles when you add them.</p></li>
   </ol>
 </div></section>
 {adv_block(['live','team','venue','local'], h='Why planners choose us.')}
@@ -766,7 +766,7 @@ PAGES = [
  ('index.html','Corporate Event AV & Livestream Production in Myrtle Beach, SC | Uplift AV',
   'Corporate event AV and hybrid livestreams for conferences, sales kickoffs, product launches, town halls and galas in Myrtle Beach and the Grand Strand. Crew, branded graphics and IMAG included. Flat package pricing.', home, []),
  ('services.html','Corporate Event AV, Hybrid Events & IMAG Services | Uplift AV Myrtle Beach',
-  'Hybrid event livestreams, multi-camera crews, branded presentation and sponsor graphics, IMAG, wired and Starlink internet, audio and recap content for corporate events on the Grand Strand.', services, svc_ld+[crumbs('Services','services.html')]),
+  'Hybrid event livestreams, multi-camera crews, branded presentation and sponsor graphics, IMAG, wired and Starlink internet, audio and event recordings for corporate events on the Grand Strand.', services, svc_ld+[crumbs('Services','services.html')]),
  ('packages.html','Corporate Event Livestream Packages & Pricing | Uplift AV',
   'Compare Essential, Professional and Executive livestream packages. Flat pricing with crew, switching and recording included.', packages, [offer_ld, crumbs('Packages','packages.html')]),
  ('faq.html','Corporate Event Livestream & AV FAQ | Uplift AV',

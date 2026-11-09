@@ -23,7 +23,7 @@ PLAN = {
  'pawleys-island-litchfield': ("About 35 to 40 minutes south of Myrtle Beach", [
    ("Golf resort events", "Litchfield and the Pawleys Island golf clubs host tournaments, banquets and company retreats."),
    ("Clubhouse rooms vary", "Clubhouse ballrooms range widely in screens, sound and internet. We walk the room first and fill the gaps."),
-   ("Fundraisers and galas", "The Hammock Coast has a strong nonprofit calendar. Sponsor graphics and a short recap video help raise next year's money.")]),
+   ("Fundraisers and galas", "The Hammock Coast has a strong nonprofit calendar. Sponsor graphics on the screens and a livestream for supporters at home help raise next year's money.")]),
  'georgetown': ("About 50 minutes south of Myrtle Beach", [
    ("Historic venues, careful setups", "Front Street, the Kaminski House and Hobcaw Barony are historic properties. We plan cable runs and gear placement that respect the space."),
    ("County and civic meetings", "Georgetown County meetings and community forums often need a dependable stream and an archive recording."),

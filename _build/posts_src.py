@@ -37,7 +37,7 @@ All three include a technical director on site, live switching with your slides 
 - **Venue fees.** Many hotels charge for a dedicated internet line, power or a connection into their sound system. Ask for these in writing early.
 - **Multi-day events.** Each additional day adds crew time, though setup is usually lighter on day two.
 - **A hosted viewing page.** Streaming to YouTube or Zoom is simple. A private, branded page with registration or Q&A costs more.
-- **Recap content.** A short highlight video or photos are add-ons, but they are often the most reused piece of the whole event. See [event photography and recap video](/event-photo-video).
+- **Session files and camera angles.** Separate files for each session, or every camera angle on its own, cost a little more but make the recording far easier to reuse. See [event recordings and camera files](/event-recording).
 
 ## Is it cheaper to livestream a conference ourselves?
 
@@ -73,7 +73,7 @@ Most conventions here are at the Myrtle Beach Convention Center, the Grande Dune
 
 Many resort and convention hotels partner with an AV company that works inside the building every day. That team knows the rooms, the house sound system and the power. For basics like projectors, microphones and room sound, in-house AV is often the simplest choice.
 
-Where planners look outside is for the produced side of an event: multiple cameras, a [livestream](/corporate-livestream-production) for remote members, [IMAG on big screens](/imag-event-screens), branded graphics and a recap video. Those are specialties, and not every in-house team does them at the level a convention needs.
+Where planners look outside is for the produced side of an event: multiple cameras, a [livestream](/corporate-livestream-production) for remote members, [IMAG on big screens](/imag-event-screens), branded graphics and session recording. Those are specialties, and not every in-house team does them at the level a convention needs.
 
 ## What fees might a venue charge an outside AV company?
 
@@ -107,7 +107,7 @@ Consider it when your event needs any of these:
 - Recordings of sessions for on-demand viewing or continuing education
 - Speakers shown on large screens for a big room
 - Sponsor graphics on screens and in the stream
-- A recap video to promote next year's event
+- Session recordings for members who couldn't attend
 
 ## Working with venue AV teams in Myrtle Beach
 
@@ -195,7 +195,7 @@ Kickoffs carry the year's message from leadership, often to every employee and e
 | 3 weeks out | Send presentations so they can be formatted for the screens and the stream. |
 | 1 week out | Final run of show. Share the stream link with remote employees. |
 | Day before or morning of | Setup, sound check and a full stream test. |
-| Within a week after | Recording delivered. Clips and a recap video if you ordered them. |
+| Within a week after | Recording delivered, plus session files or camera files if you ordered them. |
 
 ## What should leadership provide for the kickoff?
 
@@ -397,20 +397,20 @@ Changeovers can be some of the most valuable screen time of the day:
 | Item | What to plan |
 | --- | --- |
 | Screens | LED, sized to the crowd, placement on the stage plot |
-| Cameras | Stage cameras for IMAG, plus roaming or drone shots for content |
+| Cameras | Stage cameras for IMAG, plus a roaming camera for the screens and stream |
 | Switching | A video position at front of house to cut shots and content |
 | Power | Dedicated power for screens and video, separate from audio |
 | Weather | Wind limits for screens, rain covers, a delay plan |
-| Content | Sponsor loops, schedules and recap footage, prepared ahead |
+| Content | Sponsor loops and schedules, prepared ahead |
 | Coordination | Timing with the stage manager and headliner production teams |
 
 ## How do headliner production crews fit in?
 
-Touring artists often bring their own lighting and video, especially on the main stage. A local production team typically handles what touring crews don't: secondary stages, sponsor content, changeover screens, VIP areas, the livestream and recap video. Coordinate early through the festival's production manager.
+Touring artists often bring their own lighting and video, especially on the main stage. A local production team typically handles what touring crews don't: secondary stages, sponsor content, changeover screens, VIP areas and the livestream. Coordinate early through the festival's production manager.
 
 ## What should a festival capture for next year?
 
-Recap video, crowd shots, sponsor activations and aerial views. That footage sells next year's tickets, renews sponsors and fills social media between festivals. See [event photography and recap video](/event-photo-video).
+Clean camera files from the stage and the stream, with sponsor screens in frame. Ask your production team to record every camera angle separately and hand the files to whoever makes your marketing content. That footage sells next year's tickets and renews sponsors. See [event recordings and camera files](/event-recording).
 
 ## Festivals on the Grand Strand
 
